@@ -21,7 +21,7 @@ Independent set in even subraph matroid for graph G=(V,E):
 ![cycle matroid independen set examples](/cycle_matroid.png "")
 
 ### M2: cycle matroid ###
-The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [John L. Pfaltz: Cycle Matroids].
+The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
 An independent set of this matroid is a set of cycle subgraphs that do not share any edges.
 
 Axioms:
