@@ -45,4 +45,12 @@ The idea of the matroid intersection algorithm was first proposed by mathematici
 
 Using the matroid intersection algorithm, **we want to find the edges whose duplication will be the most efficient solution to the CPP**.
 
+
+#### Algorithm ####
+Input: Weighted unoriented graph G = (V, E)
+
+![graph G](/original_graph.png "")
+
+- we can use multiple approaches, e.g. from [[Lawler, Eugene L.: Matroid intersection algorithms]](https://link.springer.com/article/10.1007/BF01681329)
+
 ![intersection](/intersection.png "")
