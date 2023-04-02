@@ -44,3 +44,5 @@ More specifically, let M1 = (E, I1) and M2 = (E, I2) be two matroids defined ove
 The idea of the matroid intersection algorithm was first proposed by mathematicians Jack Edmonds and Richard M. Karp. In 1972 they introduced the concept of matroid intersection and showed that it can be used to solve a wide range of combinatorial optimization problems, including network flow, matching, and shortest path problems.
 
 Using the matroid intersection algorithm, **we want to find the edges whose duplication will be the most efficient solution to the CPP**.
+
+![intersection](/intersection.png "")
