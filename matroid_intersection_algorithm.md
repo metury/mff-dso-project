@@ -72,12 +72,16 @@ maximalComonIndependentSet(B1, B2):
         B2' <- findMaximalIndependentSet(I2')
         choose greater from maximalComonIndependentSet(B1, B2')and maximalComonIndependentSet(B1', B2)
   return P
+```
 
+![intersection](/intersection.png "")
+
+```
 CPP():
   toDuplicate <- E \ maximalComonIndependentSet()
   return G' <- G + edges toDuplicate
   find Euler circuit on g'
-  ```
+```
   
   
-![intersection](/intersection.png "")
+
