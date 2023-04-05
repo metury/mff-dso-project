@@ -16,6 +16,8 @@ Axioms:
 
 (I3) Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set. This property holds for the even subgraph matroid, since any subset of a set of subgraphs that do not contain any odd degree vertices can be extended by adding another subgraph that also does not contain any odd degree vertices.
 
+> !!POKUS, NENÍ TO STOPROCENTNĚ SPRÁVNĚ!! Zkusíme použít axiom 3' místo 3. Ten říká, že pokud vezmeme nějakou podmnožinu $A \subseteq X$, tak všechny jeho nezávislé maximální (vzhledem k $\subseteq$) množiny mají stejnou kardinalitu. Nebo-li v našem případě je $X$ hrany grafu a tedy $A$ nějaké vybrané hrany z celého grafu. Pro spor řekněme, že dvě maximální množiny a jedna je menší než druhá. Potom nutně ta jedna musí mít o hranu méně a tedy nemůže být maximální, protože existuje druhá větší.
+
 Therefore, the even subgraph matroid satisfies the axioms of a matroid, and can be used in matroid intersection algorithm.
 
 Independent set in even subraph matroid for graph G=(V,E):
