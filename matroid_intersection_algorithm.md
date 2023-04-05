@@ -1,38 +1,39 @@
 ## Defining matroids ##
-A finite **matroid M** is pairing (X, I) where X is a finite set called ground set and I is a family of subsets of X called the independent set satisfying three axioms.
+A finite **matroid $\mathcal{M}$** is pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms.
 
 A **basis of a matroid** is a maximal independent set of the matroid — that is, an independent set that is not contained in any other independent set.
 
-### M1: even subgraph matroid ###
-We will define the first matroid (M1) as even subgraph matroid:
+### $\mathcal{M}_{1}$: even subgraph matroid ###
+We will define the first matroid ($\mathcal{M}_{1}$) as even subgraph matroid:
 The ground set of the matroid is the set of all subgraphs of a given graph.
 Independent set: A subset of subgraphs is independent if and only if it does not contain any odd degree vertices.
 
 Axioms:
 
-(I1) The empty set is independent, i.e., ∅ ∈ I. Empty set does not contain any odd degree vertices and therefore satisfies the first axiom.
-
-(I2) Hereditary property: every subset of an independent set is independent. Specifically, if a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
-
-(I3) Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set. This property holds for the even subgraph matroid, since any subset of a set of subgraphs that do not contain any odd degree vertices can be extended by adding another subgraph that also does not contain any odd degree vertices.
+- $(I_{1})$ The empty set is independent, i.e., $\emptyset \in I$. Empty set does not contain any odd degree vertices and therefore satisfies the first axiom.
+- $(I_{2})$ Hereditary property: every subset of an independent set is independent. Specifically, if a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
+- $(I_{3})$ Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set. This property holds for the even subgraph matroid, since any subset of a set of subgraphs that do not contain any odd degree vertices can be extended by adding another subgraph that also does not contain any odd degree vertices.
 
 > !!POKUS, NENÍ TO STOPROCENTNĚ SPRÁVNĚ!! Zkusíme použít axiom 3' místo 3. Ten říká, že pokud vezmeme nějakou podmnožinu $A \subseteq X$, tak všechny jeho nezávislé maximální (vzhledem k $\subseteq$) množiny mají stejnou kardinalitu. Nebo-li v našem případě je $X$ hrany grafu a tedy $A$ nějaké vybrané hrany z celého grafu. Pro spor řekněme, že dvě maximální množiny a jedna je menší než druhá. Potom nutně ta jedna musí mít o hranu méně a tedy nemůže být maximální, protože existuje druhá větší.
 
 Therefore, the even subgraph matroid satisfies the axioms of a matroid, and can be used in matroid intersection algorithm.
 
-Independent set in even subraph matroid for graph G=(V,E):
+Independent set in even subraph matroid for graph $G=(V,E)$:
 
 ![even subraph matroid independen set examples](pics/evensub_matroid.png "")
 
-### M2: cycle matroid ###
-The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
+### $\mathcal{M}_{2}$: cycle matroid ###
+
+<!-- proč je tady N na pozici vrcholů, jako že nodes? -->
+
+The term “cycle matroid” of a graph $G = (N, E)$ is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges $X \subseteq E$ is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of $G$. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
 An independent set of this matroid is a set of cycle subgraphs that do not share any edges.
 
 Axioms: proving the axioms of this matroid would be a bit lengthy, so for simplicity we will refer to the article by [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf)
 
 > **!!TAKÉ JEN ZBĚŽNĚ SEPSANÉ!!** První axiom je ez, protože prázdné množina má jen cykly. Druhý axiom je taky ez, protože pokud si vezmu několik cyklů bez průniku, tak určitě jejich podmnožina jsou také cykly bez průniků. Třetí axiom by možná šlo přes standardní 3 axiom. Pokud mám dvě množiny jednu větší a druhou menší, tak se podíváme jaké situace mohou nastat při snaze najít $x$, které lze do menší z větší přidat. Tak buď nemají žádný průnik, to potom je v pohodě. Pak průnik záleží jestli je jen jeden bod (to asi nevadí *idk*) a pokud přes dva body, nebo více bodů, tak si vybereme větší oblouky (*!existence!*). **!DALŠÍ VAROVÁNÍ JE, JESTLI JSEM TY MATROIDY SPRÁVNĚ POCHOPIL, PROTOŽE JESTLI NE, TAK JE TO ASI KOMLETNĚ ŠPATNĚ!**
 
-Independent set in cycle matroid for graph G=(V,E):
+Independent set in cycle matroid for graph $G=(V,E)$:
 
 ![cycle matroid independen set examples](pics/cycle_matroid.png "")
 
@@ -40,7 +41,7 @@ Independent set in cycle matroid for graph G=(V,E):
 ## Matroid Intersection Algorithm ##
 The matroid intersection problem is to find a largest common independent set in two matroids over the same ground set. If the elements of the matroid are assigned real weights, the weighted matroid intersection problem is to find a common independent set with the maximum possible weight.
 
-More specifically, let M1 = (E, I1) and M2 = (E, I2) be two matroids defined over the same ground set E. Let w: E -> R be a weight function that assigns a weight to each element of E. The goal of the matroid intersection algorithm is to find an independent set I* that is a member of both I1 and I2 and has maximum total weight w(I*).
+More specifically, let $\mathcal{M}_{1} = (E, I_{1})$ and $\mathcal{M}_{2} = (E, I_{2})$ be two matroids defined over the same ground set $E$. Let $w: E \to \mathbb{R}$ be a weight function that assigns a weight to each element of $E$. The goal of the matroid intersection algorithm is to find an independent set $I^{\ast}$ that is a member of both $I_{1}$ and $I_{2}$ and has maximum total weight $w(I^{\ast})$.
 
 The idea of the matroid intersection algorithm was first proposed by mathematicians Jack Edmonds and Richard M. Karp. In 1972 they introduced the concept of matroid intersection and showed that it can be used to solve a wide range of combinatorial optimization problems, including network flow, matching, and shortest path problems.
 
@@ -51,7 +52,7 @@ Using the matroid intersection algorithm, **we want to find the edges whose dupl
 
 TOTO JE LEN JEDNA greedy MOŽNOSŤ, možno by nebolo odveci sa inšpirovať od [Lawler, Eugene L.: Matroid intersection algorithms](https://link.springer.com/article/10.1007/BF01681329)
 
-Input: Weighted unoriented graph G = (V, E)
+Input: Weighted unoriented graph $G = (V, E)$
 
 ![graph G](pics/original_graph.png "")
 
