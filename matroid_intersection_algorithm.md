@@ -80,8 +80,9 @@ maximalComonIndependentSet(B1, B2):
 CPP():
   toDuplicate <- E \ maximalComonIndependentSet()
   return G' <- G + edges toDuplicate
-  find Euler circuit on g'
+  find Euler circuit on G'
 ```
-  
+
+output: Euler circuit on graph with duplicated edges gives solution to Chinese Postman Problem
   
 
