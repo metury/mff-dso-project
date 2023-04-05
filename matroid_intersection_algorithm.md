@@ -30,6 +30,8 @@ An independent set of this matroid is a set of cycle subgraphs that do not share
 
 Axioms: proving the axioms of this matroid would be a bit lengthy, so for simplicity we will refer to the article by [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf)
 
+> **!!TAKÉ JEN ZBĚŽNĚ SEPSANÉ!!** První axiom je ez, protože prázdné množina má jen cykly. Druhý axiom je taky ez, protože pokud si vezmu několik cyklů bez průniku, tak určitě jejich podmnožina jsou také cykly bez průniků. Třetí axiom by možná šlo přes standardní 3 axiom. Pokud mám dvě množiny jednu větší a druhou menší, tak se podíváme jaké situace mohou nastat při snaze najít $x$, které lze do menší z větší přidat. Tak buď nemají žádný průnik, to potom je v pohodě. Pak průnik záleží jestli je jen jeden bod (to asi nevadí *idk*) a pokud přes dva body, nebo více bodů, tak si vybereme větší oblouky (*!existence!*). **!DALŠÍ VAROVÁNÍ JE, JESTLI JSEM TY MATROIDY SPRÁVNĚ POCHOPIL, PROTOŽE JESTLI NE, TAK JE TO ASI KOMLETNĚ ŠPATNĚ!**
+
 Independent set in cycle matroid for graph G=(V,E):
 
 ![cycle matroid independen set examples](pics/cycle_matroid.png "")
