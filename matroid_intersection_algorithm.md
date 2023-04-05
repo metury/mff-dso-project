@@ -20,7 +20,7 @@ Therefore, the even subgraph matroid satisfies the axioms of a matroid, and can 
 
 Independent set in even subraph matroid for graph G=(V,E):
 
-![even subraph matroid independen set examples](/evensub_matroid.png "")
+![even subraph matroid independen set examples](/pics/evensub_matroid.png "")
 
 ### M2: cycle matroid ###
 The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
@@ -30,7 +30,7 @@ Axioms: proving the axioms of this matroid would be a bit lengthy, so for simpli
 
 Independent set in cycle matroid for graph G=(V,E):
 
-![cycle matroid independen set examples](/cycle_matroid.png "")
+![cycle matroid independen set examples](/pics/cycle_matroid.png "")
 
 
 ## Matroid Intersection Algorithm ##
@@ -49,7 +49,7 @@ TOTO JE LEN JEDNA greedy MOŽNOSŤ, možno by nebolo odveci sa inšpirovať od [
 
 Input: Weighted unoriented graph G = (V, E)
 
-![graph G](/original_graph.png "")
+![graph G](/pics/original_graph.png "")
 
 ```
 I1 <- findEvenSubgraphs(G) (all subgraphs of G not containing vertices with odd degree)
@@ -74,7 +74,7 @@ maximalComonIndependentSet(B1, B2):
   return P
 ```
 
-![intersection](/intersection.png "")
+![intersection](/pics/intersection.png "")
 
 ```
 CPP():
