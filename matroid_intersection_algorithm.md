@@ -18,7 +18,7 @@ Therefore, the even subgraph matroid satisfies the axioms of a matroid, and can 
 
 Independent set in even subraph matroid for graph G=(V,E):
 
-![cycle matroid independen set examples](/cycle_matroid.png "")
+![even subraph matroid independen set examples](/evensub_matroid.png "")
 
 ### M2: cycle matroid ###
 The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
@@ -34,7 +34,8 @@ Axioms:
 
 Independent set in cycle matroid for graph G=(V,E):
 
-![even subraph matroid independen set examples](/evensub_matroid.png "")
+![cycle matroid independen set examples](/cycle_matroid.png "")
+
 
 ## Matroid Intersection Algorithm ##
 The matroid intersection problem is to find a largest common independent set in two matroids over the same ground set. If the elements of the matroid are assigned real weights, the weighted matroid intersection problem is to find a common independent set with the maximum possible weight.
