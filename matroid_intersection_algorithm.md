@@ -1,5 +1,7 @@
 ## Defining matroids ##
-A finite matroid M is pairing (X, I) where X is a finite set called ground set and I is a family of subsets of X called the independent set satisfying three axioms.
+A finite **matroid M** is pairing (X, I) where X is a finite set called ground set and I is a family of subsets of X called the independent set satisfying three axioms.
+
+A **basis of a matroid** is a maximal independent set of the matroid — that is, an independent set that is not contained in any other independent set.
 
 ### M1: even subgraph matroid ###
 We will define the first matroid (M1) as even subgraph matroid:
@@ -24,13 +26,7 @@ Independent set in even subraph matroid for graph G=(V,E):
 The term “cycle matroid” of a graph G = (N, E) is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges X ⊆ E is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of G. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
 An independent set of this matroid is a set of cycle subgraphs that do not share any edges.
 
-Axioms:
-
-(I1) The empty set is independent, i.e., ∅ ∈ I. //
-
-(I2) Hereditary property: every subset of an independent set is independent. //
-
-(I3) Exchange Property //
+Axioms: proving the axioms of this matroid would be a bit lengthy, so for simplicity we will refer to the article by [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf)
 
 Independent set in cycle matroid for graph G=(V,E):
 
@@ -48,10 +44,40 @@ Using the matroid intersection algorithm, **we want to find the edges whose dupl
 
 
 #### Algorithm ####
+
+TOTO JE LEN JEDNA greedy MOŽNOSŤ, možno by nebolo odveci sa inšpirovať od [Lawler, Eugene L.: Matroid intersection algorithms](https://link.springer.com/article/10.1007/BF01681329)
+
 Input: Weighted unoriented graph G = (V, E)
 
 ![graph G](/original_graph.png "")
 
-- we can use multiple approaches, e.g. from [[Lawler, Eugene L.: Matroid intersection algorithms]](https://link.springer.com/article/10.1007/BF01681329)
+```
+I1 <- findEvenSubgraphs(G) (all subgraphs of G not containing vertices with odd degree)
+B1 <- findMaximalIndependentSet(I1)
+I2 <- findCycleSubgraphs(G) (all cycle subgraphs which don't share any edge)
+B2 <- findMaximalIndependentSet(I2)
 
+maximalComonIndependentSet(B1, B2):
+  P <- empty set representing intersection
+
+  while B1 is not epty:
+    take arbitrary edge e from B1:
+      if e in B2:
+        add e to P
+        remove e from B1 and B2
+      otherwise:
+        I1' <- I1 \ B1
+        B1' <- findMaximalIndependentSet(I1')
+        I2' <- I2 \ B2
+        B2' <- findMaximalIndependentSet(I2')
+        choose greater from maximalComonIndependentSet(B1, B2')and maximalComonIndependentSet(B1', B2)
+  return P
+
+CPP():
+  toDuplicate <- E \ maximalComonIndependentSet()
+  return G' <- G + edges toDuplicate
+  find Euler circuit on g'
+  ```
+  
+  
 ![intersection](/intersection.png "")
