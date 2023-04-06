@@ -91,22 +91,22 @@ passes through all points in a network or graph.
 The undirected route inspection problem can be solved
 in **polynomial time**.
 The algorithm for this problem is based on the concept
-of a T-join.
-**A T-join** is an edge set J such that odd incident edges
-of vertices form set T.
-T-join exists only if every connected component of
-the graph has an even number of vertices in T.
-The minimum T-join consists of |T|/2 paths that join
-vertices of T in pairs.
+of a $T$-join.
+**A $T$-join** is an edge set $J$ such that odd incident edges
+of vertices form set $T$.
+$T$-join exists only if every connected component of
+the graph has an even number of vertices in $T$.
+The minimum $T$-join consists of $|T|/2$ paths that join
+vertices of $T$ in pairs.
 
-**The optimal solution for a minimum T-join** can be found
-by constructing a complete graph on T vertices and finding
+**The optimal solution for a minimum $T$-join** can be found
+by constructing a complete graph on $T$ vertices and finding
 a minimum weight perfect matching.
-For the route inspection problem, T should be all odd-degree
+For the route inspection problem, $T$ should be all odd-degree
 vertices.
 The whole graph is connected and has an even number of
-odd vertices, so a T-join always exists.
-Doubling the edges of a T-join creates an Eulerian multigraph.
+odd vertices, so a $T$-join always exists.
+Doubling the edges of a $T$-join creates an Eulerian multigraph.
 **An Euler tour of the multigraph** is an optimal solution
 to the route inspection problem.
 
@@ -116,10 +116,10 @@ On a directed graph, the same general ideas apply, but
 different techniques must be used.
 If the directed graph is Eulerian, finding an Euler cycle
 is enough.
-If not Eulerian, finding T-joins is necessary, which
+If not Eulerian, finding $T$-joins is necessary, which
 requires finding paths between vertices with
 in/out-degree imbalances.
 Solving this requires a minimum-cost flow problem with
 supply and demand units equal to excess in/out-degree.
-This can be solved in **O(|V|2|E|) time**.
+This can be solved in **$O(|V|2|E|)$ time**.
 A solution exists only if the graph is strongly connected.
