@@ -1,5 +1,9 @@
 ## Defining matroids ##
-A finite **matroid $\mathcal{M}$** is pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms.
+A finite **matroid $\mathcal{M}$** is pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms:
+- $(I_{1})$ The empty set is independent, i.e., $\emptyset \in I$
+- $(I_{2})$ Hereditary property: every subset of an independent set is independent.
+- $(I_{3})$ Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set.
+- $(I_{3'})$ If $A$ is any subset of $X$ then all the maximal (w.r.t. inclusion) subsets $Y$ of $A$ with $Y$ ∈ $I$ have the same cardinality.
 
 A **basis of a matroid** is a maximal independent set of the matroid — that is, an independent set that is not contained in any other independent set.
 
@@ -10,9 +14,17 @@ Independent set: A subset of subgraphs is independent if and only if it does not
 
 Axioms:
 
-- $(I_{1})$ The empty set is independent, i.e., $\emptyset \in I$. Empty set does not contain any odd degree vertices and therefore satisfies the first axiom.
-- $(I_{2})$ Hereditary property: every subset of an independent set is independent. Specifically, if a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
-- $(I_{3})$ Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set. This property holds for the even subgraph matroid, since any subset of a set of subgraphs that do not contain any odd degree vertices can be extended by adding another subgraph that also does not contain any odd degree vertices.
+- $(I_{1})$ Empty set does not contain any odd degree vertices and therefore satisfies the first axiom.
+- $(I_{2})$ If a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
+- $(I_{3})$ Suppose $A$ and $B$ are two independent sets with $|A|$ < $|B|$. Let $J$ be a maximal independent subset of $B$ (with respect to ⊆). By $(I_{3'})$, all maximal independent subsets of $B$ have the same cardinality. Therefore, $|J|$ = k, for some integer k.
+
+    Consider the set $B'$ = $J$ ∪ ($B$ \ $A$). Since $A$ ⊆ $B$, we have $B'$ = $J$ ∪ ($B$ \ $A$) ⊆ $B$, so $B'$ is a subset of the larger independent set $B$.
+
+    We claim that $B'$ is also an independent set. Suppose for contradiction that $B'$ is not independent, i.e., there exists an odd-degree vertex in $B'$. Since every vertex in $J$ has even degree (by the definition of $M_1$), the odd-degree vertex must be in ($B$ \ $A$). But this means that there exists an edge in ($B$ \ $A$) that is incident to an odd-degree vertex, which contradicts the fact that $A$ is an independent set in $M_1$. Therefore, $B'$ is indeed an independent set.
+
+    Moreover, $|B'|$ = $|J|$ + $|B$ \ $A|$ = k + $|B|$ - $|A|$ > k = $|J|$. Therefore, $B'$ is a strictly larger independent set than $J$, which contradicts the maximality of $J$.
+
+    Therefore, we have shown that any two independent sets $A$ and $B$ with $|A|$ < $|B|$ can be enlarged by adding an element from $B$ to $A$ to obtain a larger independent set. 
 
 > !!POKUS, NENÍ TO STOPROCENTNĚ SPRÁVNĚ!! Zkusíme použít axiom 3' místo 3. Ten říká, že pokud vezmeme nějakou podmnožinu $A \subseteq X$, tak všechny jeho nezávislé maximální (vzhledem k $\subseteq$) množiny mají stejnou kardinalitu. Nebo-li v našem případě je $X$ hrany grafu a tedy $A$ nějaké vybrané hrany z celého grafu. Pro spor řekněme, že dvě maximální množiny a jedna je menší než druhá. Potom nutně ta jedna musí mít o hranu méně a tedy nemůže být maximální, protože existuje druhá větší.
 
