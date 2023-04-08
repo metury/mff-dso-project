@@ -13,7 +13,6 @@ The ground set of the matroid is the set of all subgraphs of a given graph.
 Independent set: A subset of subgraphs is independent if and only if it does not contain any odd degree vertices.
 
 Axioms:
-
 - $(I_{1})$ Empty set does not contain any odd degree vertices and therefore satisfies the first axiom.
 - $(I_{2})$ If a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
 - $(I_{3})$ Suppose $A$ and $B$ are two independent sets with $|A|$ < $|B|$. Let $J$ be a maximal independent subset of $B$ (with respect to ⊆). By $(I_{3'})$, all maximal independent subsets of $B$ have the same cardinality. Therefore, $|J|$ = k, for some integer k.
@@ -36,12 +35,13 @@ Independent set in even subraph matroid for graph $G=(V,E)$:
 
 ### $\mathcal{M}_{2}$: cycle matroid ###
 
-<!-- proč je tady N na pozici vrcholů, jako že nodes? -->
-
-The term “cycle matroid” of a graph $G = (N, E)$ is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges $X \subseteq E$ is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of $G$. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
+The term “cycle matroid” of a graph $G = (V, E)$ is well-known. It is frequently used as a simple introduction to basic matroid concepts. In that introductory example, a set of edges $X \subseteq E$ is said to be “independent” if it contains no cycles. A maximal, independent set is thus a spanning tree of $G$. However, it is not at all what we mean by a “cycle matroid”. The elements of graph based matroids are the edges of the graph. The ground set of our “cycle matroid” are the cycles themselves. We use nodes and edges only to help describe the individual cycles. [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf).
 An independent set of this matroid is a set of cycle subgraphs that do not share any edges.
 
-Axioms: proving the axioms of this matroid would be a bit lengthy, so for simplicity we will refer to the article by [[John L. Pfaltz: Cycle Matroids]](https://www.cs.virginia.edu/~jlp/19.CYCLE.pdf)
+Axioms:
+- $(I_{1})$ To prove this formally, we can use the definition of an independent set and the fact that the empty set has no elements. Let $I$ be an independent set of cycle subgraphs of $G$, and let $X$ be the empty set. Then, by definition, $I$ does not contain any cycle subgraphs that share edges, and since $X$ contains no elements, the empty set is independent.
+- $(I_{2})$ If a set of cycles does not share any edges (thus is independent), then by definition, any subset of that set must also not share any edges. Therefore, the hereditary property holds for our "cycle matroid".
+- $(I_{3})$ 
 
 > **!!TAKÉ JEN ZBĚŽNĚ SEPSANÉ!!** První axiom je ez, protože prázdné množina má jen cykly. Druhý axiom je taky ez, protože pokud si vezmu několik cyklů bez průniku, tak určitě jejich podmnožina jsou také cykly bez průniků. Třetí axiom by možná šlo přes standardní 3 axiom. Pokud mám dvě množiny jednu větší a druhou menší, tak se podíváme jaké situace mohou nastat při snaze najít $x$, které lze do menší z větší přidat. Tak buď nemají žádný průnik, to potom je v pohodě. Pak průnik záleží jestli je jen jeden bod (to asi nevadí *idk*) a pokud přes dva body, nebo více bodů, tak si vybereme větší oblouky (*!existence!*). **!DALŠÍ VAROVÁNÍ JE, JESTLI JSEM TY MATROIDY SPRÁVNĚ POCHOPIL, PROTOŽE JESTLI NE, TAK JE TO ASI KOMLETNĚ ŠPATNĚ!**
 
