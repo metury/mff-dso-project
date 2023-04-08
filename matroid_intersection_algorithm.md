@@ -17,7 +17,7 @@ Axioms:
 - $(I_{2})$ If a subgraph does not contain any odd degree vertices, then any subset of that subgraph also does not contain any odd degree vertices.
 - $(I_{3})$ Suppose $A$ and $B$ are two independent sets with $|A|$ < $|B|$. Let $J$ be a maximal independent subset of $B$ (with respect to ⊆). By $(I_{3'})$, all maximal independent subsets of $B$ have the same cardinality. Therefore, $|J|$ = k, for some integer k.
 
-    Consider the set $B'$ = $J$ ∪ ($B$ \ $A$). Since $A$ ⊆ $B$, we have $B'$ = $J$ ∪ ($B$ \ $A$) ⊆ $B$, so $B'$ is a subset of the larger independent set $B$.
+    Consider the set $B'$ = $J$ ∪ ($B$ \ $A$). Since $J$ ⊆ $B$, we have $B'$ = $J$ ∪ ($B$ \ $A$) ⊆ $B$, so $B'$ is a subset of the larger independent set $B$.
 
     We claim that $B'$ is also an independent set. Suppose for contradiction that $B'$ is not independent, i.e., there exists an odd-degree vertex in $B'$. Since every vertex in $J$ has even degree (by the definition of $M_1$), the odd-degree vertex must be in ($B$ \ $A$). But this means that there exists an edge in ($B$ \ $A$) that is incident to an odd-degree vertex, which contradicts the fact that $A$ is an independent set in $M_1$. Therefore, $B'$ is indeed an independent set.
 
