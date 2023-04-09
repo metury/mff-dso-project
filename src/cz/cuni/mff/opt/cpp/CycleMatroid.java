@@ -10,44 +10,48 @@ class CycleMatroid{
         this.G = G;
         cycles = new ArrayList<ArrayList<Edge>>();
     }
-    public void findCycles(){
-        for(int i = 0; i < G.edgeSize(); ++i){
-            //System.out.println("==NEW ONE " + i);
-            ArrayList<Edge> edges = new ArrayList<Edge>();
-            edges.add(G.getEdge(i));
-            recursiveFindCycles(G.getEdge(i),edges, G.getEdge(i).getFrom(), G.getEdge(i).getFrom());
-        }
+    public void printCycles(){
         for(ArrayList<Edge> cycle : cycles){
             System.out.print("Cyklus:");
             for(Edge e : cycle){
                 System.out.print(e);
             }
-            System.out.println();
+            System.out.println(" With sum: " + getValueOfCycle(cycle));
         }
     }
-    private void recursiveFindCycles(Edge edge, ArrayList<Edge> edges, Vertex start, Vertex from){
+    private double getValueOfCycle(ArrayList<Edge> cycle){
+        double sum = 0;
+        for(Edge e : cycle){
+            sum += e.getValue();
+        }
+        return sum;
+    }
+    public void findCycles(){
+        ArrayList<Edge> forbidden = new ArrayList<Edge>();
+        for(int i = 0; i < G.edgeSize(); ++i){
+            ArrayList<Edge> edges = new ArrayList<Edge>();
+            edges.add(G.getEdge(i));
+            recursiveFindCycles(G.getEdge(i),edges, G.getEdge(i).getFrom(), G.getEdge(i).getFrom(), forbidden);
+            forbidden.add(G.getEdge(i));
+        }
+    }
+    private void recursiveFindCycles(Edge edge, ArrayList<Edge> edges, Vertex start, Vertex from, ArrayList<Edge> forbidden){
         Vertex v = edge.getSecondVertex(from);
-        //System.out.println("By " + edge + " CURRENTLY AT " + v);
         if(v == start){
             cycles.add(edges);
             return;
         }
         for(Edge e : v){
-            if(e == edge){
+            if(e == edge || forbidden.contains(e)){
                 continue;
             }
-            //System.out.println("Trying EDGE " + e);
             if(!edges.contains(e)){
-                //System.out.println("HIT");
                 ArrayList<Edge> newEdges = new ArrayList<Edge>();
-                //System.out.print("Found Path: ");
                 for(Edge ecopy : edges){
                     newEdges.add(ecopy);
-                    //System.out.print(ecopy);
                 }
-                //System.out.println();
                 newEdges.add(e);
-                recursiveFindCycles(e, newEdges, start, v);  
+                recursiveFindCycles(e, newEdges, start, v, forbidden);  
             }
         }
     }
