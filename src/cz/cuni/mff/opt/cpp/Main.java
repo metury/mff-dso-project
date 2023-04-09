@@ -10,7 +10,7 @@ class Main{
                 CM.findCycles();
                 System.out.println("===");
                 Graph G2 = new Graph("graphs/petersen");
-                G.exportMermaidMd("petersen.md");
+                G2.exportMermaidMd("petersen.md");
                 CycleMatroid CM2 = new CycleMatroid(G2);
                 CM2.findCycles();
 	}
