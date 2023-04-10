@@ -1,4 +1,4 @@
-# Cycle Matroids
+# Even subgraph matroids
 
 On input we have following graph $G$:
 
@@ -13,8 +13,6 @@ graph TD;
 	1 -- "3.0" --- 2;
 	2 -- "0.0" --- 3;
 ```
-
-By this non-so efficient way we find all cycles and then try to combine as most of the cycles together. Then we get following so called **cycle matroids**.
 
 ## Matroid Nr.1
 

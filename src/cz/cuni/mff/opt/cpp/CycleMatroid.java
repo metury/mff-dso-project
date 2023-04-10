@@ -5,67 +5,55 @@ import java.util.HashSet;
 import java.io.*;
 import cz.cuni.mff.java.graphs.*;
 
+/**
+ * Class for cycle subgraph matroids.
+ */
 class CycleMatroid{
+    /**
+     * Given graph.
+     */
     private Graph G;
+    /**
+     * ALl cycles in the graph.
+     */
     private ArrayList<HashSet<Edge>> cycles;
+    /**
+     * All matroids in the graph. Represented as a list of cycle lists. Where cycle is a set of edges.
+     */
     private ArrayList<ArrayList<HashSet<Edge>>> matroids;
+    /**
+     * Default constructor.
+     * @param G Given graph.
+     */
     public CycleMatroid(Graph G){
         this.G = G;
         cycles = new ArrayList<HashSet<Edge>>();
         matroids = new ArrayList<ArrayList<HashSet<Edge>>>();   
     }
-    public void visualizeMatroids(String filePath, boolean append){
+    /**
+     * Find all cycle subgraph matroids.
+     * @return List of sets of edges representing matroids.
+     */
+    public ArrayList<HashSet<Edge>> findCycleSubgraphs(){
+        createMatroids();
+        ArrayList<HashSet<Edge>> ret = new ArrayList<HashSet<Edge>>();
+        for(ArrayList<HashSet<Edge>> matroid : matroids){
+            HashSet<Edge> newMatroid = new HashSet<Edge>();
+            for(HashSet<Edge> cycle : matroid){
+                for(Edge e : cycle){
+                    newMatroid.add(e);
+                }
+            }
+            ret.add(newMatroid);
+        }
+        return ret;
+    }
+    /**
+     * Recursively create all matroids. Firstly by creating all cycles.
+     */
+    private void createMatroids(){
         matroids.add(new ArrayList<HashSet<Edge>>());
         findCycles();
-        combineCycles();
-        try(BufferedWriter out = new BufferedWriter(new FileWriter(filePath, append))){
-            out.write("# Cycle Matroids\n\n");
-            out.write("On input we have following graph $G$:\n\n");
-            G.exportMermaid(out, true);
-            out.write("By this non-so efficient way we find all cycles and then try to combine as most of the cycles together. Then we get following so called **cycle matroids**.\n\n");
-            int index = 1;
-            ArrayList<HashSet<Edge>> max = getMaxmatroid();
-            for(ArrayList<HashSet<Edge>> matroid : matroids){
-                out.write("## Matroid Nr." + index++ + "\n\n");
-                if(max == matroid){
-                    out.write("**This matroid is maximal with respect to the edge values.**\n\n");
-                }
-                boolean [] unused = new boolean[G.edgeSize()];
-                for(int i = 0; i < unused.length; ++i){
-                    unused[i] = true;
-                }
-                for(HashSet<Edge> cycle : matroid){
-                    for(Edge e : cycle){
-                        unused[e.getId()] = false;
-                    }
-                }
-                G.exportMermaid(out, true, unused);
-                out.write("This matroid has a value: `" + getSumOfMatroid(matroid) + "`.\n\n");
-            }
-        } catch(IOException ioe){
-            System.err.println(ioe);
-        }
-    }
-    private ArrayList<HashSet<Edge>> getMaxmatroid(){
-        double sum = 0;
-        ArrayList<HashSet<Edge>> max = new ArrayList<HashSet<Edge>>();
-        for(ArrayList<HashSet<Edge>> matroid : matroids){
-            double matroidSum = getSumOfMatroid(matroid);
-            if(matroidSum > sum){
-                sum = matroidSum;
-                max = matroid;
-            }
-        }
-        return max;
-    }
-    private double getSumOfMatroid(ArrayList<HashSet<Edge>> matroid){
-        double sum = 0;
-        for(HashSet<Edge> cycle : matroid){
-            sum += getSumOfCycle(cycle);
-        }
-        return sum;
-    }
-    private void combineCycles(){
         ArrayList<HashSet<Edge>> forbidden = new ArrayList<HashSet<Edge>>();
         for(HashSet<Edge> cycle : cycles){
             forbidden.add(cycle);
@@ -75,10 +63,16 @@ class CycleMatroid{
             }
             ArrayList<HashSet<Edge>> matroid = new ArrayList<HashSet<Edge>>();
             matroid.add(cycle);
-            recursiveCombineCycles(forbidden, matroid, used);
+            recursiveCreateMatroids(forbidden, matroid, used);
         }
     }
-    private void recursiveCombineCycles(ArrayList<HashSet<Edge>> forbidden, ArrayList<HashSet<Edge>> matroid, HashSet<Edge> used){
+    /**
+     * Recusrive call on creating matroids.
+     * @param forbidden Which cycles can't be used.
+     * @param matroid Currently semi constructed matroid.
+     * @param used Which edges have been already used in used cycles.
+     */
+    private void recursiveCreateMatroids(ArrayList<HashSet<Edge>> forbidden, ArrayList<HashSet<Edge>> matroid, HashSet<Edge> used){
         boolean found = true;
         MAINLOOP: for(HashSet<Edge> cycle : cycles){
             if(forbidden.contains(cycle)){
@@ -100,19 +94,15 @@ class CycleMatroid{
             for(Edge usedE : used){
                 newUsed.add(usedE);
             }
-            recursiveCombineCycles(forbidden, newMatroid, newUsed);
+            recursiveCreateMatroids(forbidden, newMatroid, newUsed);
         }
         if(found){
             matroids.add(matroid);
         }
     }
-    private double getSumOfCycle(HashSet<Edge> cycle){
-        double sum = 0;
-        for(Edge e : cycle){
-            sum += e.getValue();
-        }
-        return sum;
-    }
+    /**
+     * Recursively find all cycles in graph.
+     */
     private void findCycles(){
         HashSet<Edge> forbidden = new HashSet<Edge>();
         for(int i = 0; i < G.edgeSize(); ++i){
@@ -122,6 +112,14 @@ class CycleMatroid{
             forbidden.add(G.getEdge(i));
         }
     }
+    /**
+     * Recursive call to find cycles.
+     * @param edge Last used edge.
+     * @param edges Currently used semi build cycle.
+     * @param start Begining of the cycles, thus the end as well.
+     * @param from Vertex on the edge we use as start.
+     * @param forbidden Which edges cannot be used anymore.
+     */
     private void recursiveFindCycles(Edge edge, HashSet<Edge> edges, Vertex start, Vertex from, HashSet<Edge> forbidden){
         Vertex v = edge.getSecondVertex(from);
         if(v == start){
