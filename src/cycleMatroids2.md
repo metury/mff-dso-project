@@ -33,6 +33,8 @@ graph TD;
 
 By this non-so efficient way we find all cycles and then try to combine as most of the cycles together. Then we get following so called **cycle matroids**.
 
+## Matroid Nr.1
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -62,7 +64,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 117.13
+This matroid has a value: 117.13000000000001
+
+## Matroid Nr.2
 
 ```mermaid
 graph TD;
@@ -95,6 +99,8 @@ graph TD;
 
 This matroid has a value: 107.75
 
+## Matroid Nr.3
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -125,6 +131,8 @@ graph TD;
 ```
 
 This matroid has a value: 40.06
+
+## Matroid Nr.4
 
 ```mermaid
 graph TD;
@@ -157,6 +165,8 @@ graph TD;
 
 This matroid has a value: 25.47
 
+## Matroid Nr.5
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -187,6 +197,8 @@ graph TD;
 ```
 
 This matroid has a value: 45.39
+
+## Matroid Nr.6
 
 ```mermaid
 graph TD;
@@ -219,6 +231,8 @@ graph TD;
 
 This matroid has a value: 95.08
 
+## Matroid Nr.7
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -248,7 +262,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 106.46000000000001
+This matroid has a value: 106.46
+
+## Matroid Nr.8
 
 ```mermaid
 graph TD;
@@ -281,6 +297,8 @@ graph TD;
 
 This matroid has a value: 122.07
 
+## Matroid Nr.9
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -312,6 +330,8 @@ graph TD;
 
 This matroid has a value: 50.46
 
+## Matroid Nr.10
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -341,7 +361,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 120.73999999999998
+This matroid has a value: 120.74
+
+## Matroid Nr.11
 
 ```mermaid
 graph TD;
@@ -374,6 +396,8 @@ graph TD;
 
 This matroid has a value: 54.4
 
+## Matroid Nr.12
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -404,6 +428,8 @@ graph TD;
 ```
 
 This matroid has a value: 35.07
+
+## Matroid Nr.13
 
 ```mermaid
 graph TD;
@@ -436,6 +462,8 @@ graph TD;
 
 This matroid has a value: 113.47
 
+## Matroid Nr.14
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -465,7 +493,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 114.13999999999999
+This matroid has a value: 114.14
+
+## Matroid Nr.15
 
 ```mermaid
 graph TD;
@@ -498,6 +528,8 @@ graph TD;
 
 This matroid has a value: 88.22
 
+## Matroid Nr.16
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -528,6 +560,8 @@ graph TD;
 ```
 
 This matroid has a value: 90.16
+
+## Matroid Nr.17
 
 ```mermaid
 graph TD;
@@ -560,6 +594,8 @@ graph TD;
 
 This matroid has a value: 63.23
 
+## Matroid Nr.18
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -589,7 +625,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 85.15
+This matroid has a value: 85.14999999999999
+
+## Matroid Nr.19
 
 ```mermaid
 graph TD;
@@ -622,6 +660,8 @@ graph TD;
 
 This matroid has a value: 102.83
 
+## Matroid Nr.20
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -651,7 +691,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 98.89
+This matroid has a value: 98.88999999999999
+
+## Matroid Nr.21
 
 ```mermaid
 graph TD;
@@ -682,7 +724,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 83.82
+This matroid has a value: 83.82000000000001
+
+## Matroid Nr.22
 
 ```mermaid
 graph TD;
@@ -713,7 +757,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 86.47999999999999
+This matroid has a value: 86.48
+
+## Matroid Nr.23
 
 ```mermaid
 graph TD;
@@ -746,6 +792,8 @@ graph TD;
 
 This matroid has a value: 68.82
 
+## Matroid Nr.24
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -776,6 +824,8 @@ graph TD;
 ```
 
 This matroid has a value: 91.81
+
+## Matroid Nr.25
 
 ```mermaid
 graph TD;
@@ -808,6 +858,8 @@ graph TD;
 
 This matroid has a value: 77.88
 
+## Matroid Nr.26
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -837,7 +889,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 85.21000000000001
+This matroid has a value: 85.21
+
+## Matroid Nr.27
 
 ```mermaid
 graph TD;
@@ -870,6 +924,8 @@ graph TD;
 
 This matroid has a value: 60.87
 
+## Matroid Nr.28
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -901,6 +957,8 @@ graph TD;
 
 This matroid has a value: 78.19999999999999
 
+## Matroid Nr.29
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -930,7 +988,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 73.00999999999999
+This matroid has a value: 73.01
+
+## Matroid Nr.30
 
 ```mermaid
 graph TD;
@@ -961,7 +1021,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 76.03999999999999
+This matroid has a value: 76.04
+
+## Matroid Nr.31
 
 ```mermaid
 graph TD;
@@ -994,6 +1056,8 @@ graph TD;
 
 This matroid has a value: 59.629999999999995
 
+## Matroid Nr.32
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1023,7 +1087,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 93.96000000000001
+This matroid has a value: 93.96
+
+## Matroid Nr.33
 
 ```mermaid
 graph TD;
@@ -1056,6 +1122,8 @@ graph TD;
 
 This matroid has a value: 68.96
 
+## Matroid Nr.34
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1086,6 +1154,8 @@ graph TD;
 ```
 
 This matroid has a value: 76.34
+
+## Matroid Nr.35
 
 ```mermaid
 graph TD;
@@ -1118,6 +1188,8 @@ graph TD;
 
 This matroid has a value: 85.28999999999999
 
+## Matroid Nr.36
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1147,7 +1219,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 90.36
+This matroid has a value: 90.35999999999999
+
+## Matroid Nr.37
 
 ```mermaid
 graph TD;
@@ -1178,7 +1252,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 76.62
+This matroid has a value: 76.61999999999999
+
+## Matroid Nr.38
 
 ```mermaid
 graph TD;
@@ -1211,6 +1287,8 @@ graph TD;
 
 This matroid has a value: 91.94999999999999
 
+## Matroid Nr.39
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1241,6 +1319,8 @@ graph TD;
 ```
 
 This matroid has a value: 87.03
+
+## Matroid Nr.40
 
 ```mermaid
 graph TD;
@@ -1273,6 +1353,8 @@ graph TD;
 
 This matroid has a value: 90.3
 
+## Matroid Nr.41
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1303,6 +1385,8 @@ graph TD;
 ```
 
 This matroid has a value: 92.97
+
+## Matroid Nr.42
 
 ```mermaid
 graph TD;
@@ -1335,6 +1419,8 @@ graph TD;
 
 This matroid has a value: 87.35
 
+## Matroid Nr.43
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1365,6 +1451,8 @@ graph TD;
 ```
 
 This matroid has a value: 38.99
+
+## Matroid Nr.44
 
 ```mermaid
 graph TD;
@@ -1397,6 +1485,10 @@ graph TD;
 
 This matroid has a value: 120.0
 
+## Matroid Nr.45
+
+**This matroid is maximal with respect to the edge values.**
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1427,6 +1519,8 @@ graph TD;
 ```
 
 This matroid has a value: 124.6
+
+## Matroid Nr.46
 
 ```mermaid
 graph TD;
@@ -1459,6 +1553,8 @@ graph TD;
 
 This matroid has a value: 38.93
 
+## Matroid Nr.47
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1489,6 +1585,8 @@ graph TD;
 ```
 
 This matroid has a value: 48.26
+
+## Matroid Nr.48
 
 ```mermaid
 graph TD;
@@ -1521,6 +1619,8 @@ graph TD;
 
 This matroid has a value: 42.32
 
+## Matroid Nr.49
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1550,7 +1650,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 115.93
+This matroid has a value: 115.92999999999999
+
+## Matroid Nr.50
 
 ```mermaid
 graph TD;
@@ -1583,6 +1685,8 @@ graph TD;
 
 This matroid has a value: 105.33
 
+## Matroid Nr.51
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1612,7 +1716,9 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 102.32
+This matroid has a value: 102.32000000000001
+
+## Matroid Nr.52
 
 ```mermaid
 graph TD;
@@ -1645,6 +1751,8 @@ graph TD;
 
 This matroid has a value: 21.33
 
+## Matroid Nr.53
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1675,6 +1783,8 @@ graph TD;
 ```
 
 This matroid has a value: 88.94
+
+## Matroid Nr.54
 
 ```mermaid
 graph TD;
@@ -1707,6 +1817,8 @@ graph TD;
 
 This matroid has a value: 39.25
 
+## Matroid Nr.55
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1738,6 +1850,8 @@ graph TD;
 
 This matroid has a value: 23.92
 
+## Matroid Nr.56
+
 ```mermaid
 graph TD;
 	0(" ");
@@ -1767,7 +1881,9 @@ graph TD;
 	7 -. "6.66" -.- 9;
 ```
 
-This matroid has a value: 91.60999999999999
+This matroid has a value: 91.61
+
+## Matroid Nr.57
 
 ```mermaid
 graph TD;
@@ -1798,5 +1914,5 @@ graph TD;
 	7 -- "6.66" --- 9;
 ```
 
-This matroid has a value: 98.99
+This matroid has a value: 98.99000000000001
 

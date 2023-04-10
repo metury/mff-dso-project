@@ -21,7 +21,13 @@ class CycleMatroid{
             out.write("On input we have following graph $G$:\n\n");
             G.exportMermaid(out, true);
             out.write("By this non-so efficient way we find all cycles and then try to combine as most of the cycles together. Then we get following so called **cycle matroids**.\n\n");
+            int index = 1;
+            ArrayList<HashSet<Edge>> max = getMaxmatroid();
             for(ArrayList<HashSet<Edge>> matroid : matroids){
+                out.write("## Matroid Nr." + index++ + "\n\n");
+                if(max == matroid){
+                    out.write("**This matroid is maximal with respect to the edge values.**\n\n");
+                }
                 boolean [] unused = new boolean[G.edgeSize()];
                 for(int i = 0; i < unused.length; ++i){
                     unused[i] = true;
@@ -37,6 +43,18 @@ class CycleMatroid{
         } catch(IOException ioe){
             System.err.println(ioe);
         }
+    }
+    private ArrayList<HashSet<Edge>> getMaxmatroid(){
+        double sum = 0;
+        ArrayList<HashSet<Edge>> max = new ArrayList<HashSet<Edge>>();
+        for(ArrayList<HashSet<Edge>> matroid : matroids){
+            double matroidSum = getSumOfMatroid(matroid);
+            if(matroidSum > sum){
+                sum = matroidSum;
+                max = matroid;
+            }
+        }
+        return max;
     }
     private double getSumOfMatroid(ArrayList<HashSet<Edge>> matroid){
         double sum = 0;
