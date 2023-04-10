@@ -24,15 +24,15 @@ class Main{
      */
     public static void main(String[] args){
         Graph G = new Graph("graphs/graph1");
-        intersectionOfMatroids(G, "output/cycleMatroidsSimple.md", "output/evenSubMatroidsSimple.md");
+        intersectionOfMatroids(G, "output/cycleMatroidsSimple.md", "output/evenSubMatroidsSimple.md", "output/resultSimple.md");
         Graph G2 = new Graph("graphs/petersen");
-        intersectionOfMatroids(G2, "output/cycleMatroidsPetersen.md", "output/evenSubMatroidsPetersen.md");
+        intersectionOfMatroids(G2, "output/cycleMatroidsPetersen.md", "output/evenSubMatroidsPetersen.md", "output/resultPetersen.md");
         
     }
     private static void CPP(Graph G){
         
     }
-    private static void intersectionOfMatroids(Graph G, String cycleFilePath, String evenFilePath){
+    private static void intersectionOfMatroids(Graph G, String cycleFilePath, String evenFilePath, String resultPath){
         CycleMatroid CM = new CycleMatroid(G);
         EvenMatroid EM = new EvenMatroid(G);
         
@@ -40,13 +40,52 @@ class Main{
         ArrayList<HashSet<Edge>> I2 = CM.findCycleSubgraphs();
         visualizeMatroids(G, I1, EVEN_SUBGRAPH_MATROID_HEADER, cycleFilePath, false);
         visualizeMatroids(G, I2, CYCLE_MATROID_HEADER, evenFilePath, false);
-                
+               
         HashSet<Edge> B1 = findMaximalIndependentSet(I1);
         HashSet<Edge> B2 = findMaximalIndependentSet(I2);
+        HashSet<Edge> result = maximalComonIndependentSet(I1, B1, I2, B2);
+        visualizeMatroid(G, result, resultPath, false);
     }
-    private static void maximalComonIndependentSet(Graph G){
+    private static HashSet<Edge> maximalComonIndependentSet(ArrayList<HashSet<Edge>> I1, HashSet<Edge> B1, ArrayList<HashSet<Edge>> I2, HashSet<Edge> B2){
         HashSet<Edge> P = new HashSet<Edge>();
         
+        while(!B1.isEmpty()){
+            Edge[] edges = B1.toArray(new Edge[B1.size()]);
+            Edge e = edges[0];
+                if(B2.contains(e)){
+                    P.add(e);
+                    B2.remove(e);
+                    B1.remove(e);
+                }
+                else{
+                    ArrayList<HashSet<Edge>> I1d = new ArrayList<HashSet<Edge>>();
+                    ArrayList<HashSet<Edge>> I2d = new ArrayList<HashSet<Edge>>();
+                    for(HashSet<Edge> hs : I1){
+                        I1d.add(hs);
+                    }
+                    for(HashSet<Edge> hs : I2){
+                        I2d.add(hs);
+                    }
+                    I1d.remove(B1);
+                    I2d.remove(B2);
+                    HashSet<Edge> B1d = findMaximalIndependentSet(I1d);
+                    HashSet<Edge> B2d = findMaximalIndependentSet(I2d);
+                    HashSet<Edge> firstResult = maximalComonIndependentSet(I1, B1, I2, B2d);
+                    HashSet<Edge> secondResult = maximalComonIndependentSet(I1, B1d, I2, B2);
+                    if(getSumOfMatroid(firstResult) > getSumOfMatroid(secondResult)){
+                        for(Edge edge : firstResult){
+                            P.add(edge);
+                        }
+                    }
+                    else{
+                        for(Edge edge : secondResult){
+                            P.add(edge);
+                        }
+                    }
+                
+            }
+        }
+        return P;
     }
     /**
      * Get the maximal independent set from all matroids.
@@ -110,5 +149,21 @@ class Main{
          } catch(IOException ioe){
              System.err.println(ioe);
          }
+    }
+    public static void visualizeMatroid(Graph G, HashSet<Edge> matroid, String filePath, boolean append){
+        try(BufferedWriter out = new BufferedWriter(new FileWriter(filePath, append))){
+            out.write("## Result\n\n");
+            boolean [] unused = new boolean[G.edgeSize()];
+            for(int i = 0; i < unused.length; ++i){
+                unused[i] = true;
+            }
+            for(Edge e : matroid){
+                unused[e.getId()] = false;
+            }
+            G.exportMermaid(out, true, unused);
+            out.write("This matroid has a value: `" + getSumOfMatroid(matroid) + "`.\n\n");
+        } catch(IOException ioe){
+            System.err.println(ioe);
+        }
     }
 }

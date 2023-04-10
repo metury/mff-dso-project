@@ -9,3 +9,4 @@ Project to discrete optimalisation. First [draft](first_draft.md) of the descrip
 3. Programming part:
 	- Cycle matroids [simple](src/output/cycleMatroidsSimple.md) and [petersen](src/cycleMatroidsPetersen.md).
 	- Even subgraphs matroids [simple](src/output/evenSubMatroidsPetersen.md) and [petersen](src/output/evenSubMatroidsPetersen.md).
+	- And results of matroid intersection algorithms: [simple](src/output/resultSimple.md) and [petersen](src/output/resultPetersen.md).
