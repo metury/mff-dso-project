@@ -18,6 +18,22 @@ By this non-so efficient way we find all cycles and then try to combine as most 
 
 ## Matroid Nr.1
 
+```mermaid
+graph TD;
+	0(" ");
+	1(" ");
+	2(" ");
+	3(" ");
+	0 -. "20.0" -.- 1;
+	1 -. "5.0" -.- 3;
+	1 -. "3.0" -.- 2;
+	2 -. "0.0" -.- 3;
+```
+
+This matroid has a value: 0.0
+
+## Matroid Nr.2
+
 **This matroid is maximal with respect to the edge values.**
 
 ```mermaid

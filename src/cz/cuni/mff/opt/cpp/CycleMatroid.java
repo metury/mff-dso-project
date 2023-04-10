@@ -1,6 +1,7 @@
 package cz.cuni.mff.opt.cpp;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.io.*;
 import cz.cuni.mff.java.graphs.*;
 
@@ -14,6 +15,7 @@ class CycleMatroid{
         matroids = new ArrayList<ArrayList<HashSet<Edge>>>();   
     }
     public void visualizeMatroids(String filePath, boolean append){
+        matroids.add(new ArrayList<HashSet<Edge>>());
         findCycles();
         combineCycles();
         try(BufferedWriter out = new BufferedWriter(new FileWriter(filePath, append))){
