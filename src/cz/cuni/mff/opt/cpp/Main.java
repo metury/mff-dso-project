@@ -27,6 +27,8 @@ class Main{
         intersectionOfMatroids(G, "output/cycleMatroidsSimple.md", "output/evenSubMatroidsSimple.md", "output/resultSimple.md");
         Graph G2 = new Graph("graphs/petersen");
         intersectionOfMatroids(G2, "output/cycleMatroidsPetersen.md", "output/evenSubMatroidsPetersen.md", "output/resultPetersen.md");
+        Graph G3 = new Graph("graphs/example");
+        intersectionOfMatroids(G3, "output/cycleMatroidsExample.md", "output/evenSubMatroidsExample.md", "output/resultExample.md");
         
     }
     private static void CPP(Graph G){
@@ -38,8 +40,8 @@ class Main{
         
         ArrayList<HashSet<Edge>> I1 = EM.findEvenSubgraphs();
         ArrayList<HashSet<Edge>> I2 = CM.findCycleSubgraphs();
-        visualizeMatroids(G, I1, EVEN_SUBGRAPH_MATROID_HEADER, cycleFilePath, false);
-        visualizeMatroids(G, I2, CYCLE_MATROID_HEADER, evenFilePath, false);
+        visualizeMatroids(G, I1, CYCLE_MATROID_HEADER, cycleFilePath, false);
+        visualizeMatroids(G, I2, EVEN_SUBGRAPH_MATROID_HEADER, evenFilePath, false);
                
         HashSet<Edge> B1 = findMaximalIndependentSet(I1);
         HashSet<Edge> B2 = findMaximalIndependentSet(I2);

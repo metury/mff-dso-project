@@ -1,4 +1,4 @@
-# Cycle Matroids
+# Even subgraph matroids
 
 On input we have following graph $G$:
 
