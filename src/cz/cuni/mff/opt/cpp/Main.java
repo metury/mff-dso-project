@@ -9,11 +9,15 @@ class Main{
         CycleMatroid CM = new CycleMatroid(G);
         CM.findCycles();
         CM.printCycles();
+        CM.combineCycles();
+        CM.printMatroids();
         System.out.println("===");
         Graph G2 = new Graph("graphs/petersen");
         G2.exportMermaidMd("petersen.md");
         CycleMatroid CM2 = new CycleMatroid(G2);
         CM2.findCycles();
         CM2.printCycles();
+        CM2.combineCycles();
+        CM2.printMatroids();
     }
 }
