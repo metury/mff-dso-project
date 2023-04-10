@@ -30,7 +30,7 @@ graph TD;
 	2 -. "0.0" -.- 3;
 ```
 
-This matroid has a value: 0.0
+This matroid has a value: `0.0`.
 
 ## Matroid Nr.2
 
@@ -48,5 +48,5 @@ graph TD;
 	2 -- "0.0" --- 3;
 ```
 
-This matroid has a value: 8.0
+This matroid has a value: `8.0`.
 

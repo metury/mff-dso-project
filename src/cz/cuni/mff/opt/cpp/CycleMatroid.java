@@ -40,7 +40,7 @@ class CycleMatroid{
                     }
                 }
                 G.exportMermaid(out, true, unused);
-                out.write("This matroid has a value: " + getSumOfMatroid(matroid) + "\n\n");
+                out.write("This matroid has a value: `" + getSumOfMatroid(matroid) + "`.\n\n");
             }
         } catch(IOException ioe){
             System.err.println(ioe);
