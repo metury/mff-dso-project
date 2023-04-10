@@ -1,6 +1,7 @@
 package cz.cuni.mff.opt.cpp;
 
 import java.util.*;
+import java.io.*;
 import cz.cuni.mff.java.graphs.*;
 
 class CycleMatroid{
@@ -12,19 +13,39 @@ class CycleMatroid{
         cycles = new ArrayList<HashSet<Edge>>();
         matroids = new ArrayList<ArrayList<HashSet<Edge>>>();   
     }
-    public void printMatroids(){
-        for(ArrayList<HashSet<Edge>> matroid : matroids){
-            System.out.println("MATROID:");
-            for(HashSet<Edge> cycle : matroid){
-                System.out.print(" - Cycle: ");
-                for(Edge e : cycle){
-                    System.out.print(e);
+    public void visualizeMatroids(String filePath, boolean append){
+        findCycles();
+        combineCycles();
+        try(BufferedWriter out = new BufferedWriter(new FileWriter(filePath, append))){
+            out.write("# Cycle Matroids\n\n");
+            out.write("On input we have following graph $G$:\n\n");
+            G.exportMermaid(out, true);
+            out.write("By this non-so efficient way we find all cycles and then try to combine as most of the cycles together. Then we get following so called **cycle matroids**.\n\n");
+            for(ArrayList<HashSet<Edge>> matroid : matroids){
+                boolean [] unused = new boolean[G.edgeSize()];
+                for(int i = 0; i < unused.length; ++i){
+                    unused[i] = true;
                 }
-                System.out.println();
+                for(HashSet<Edge> cycle : matroid){
+                    for(Edge e : cycle){
+                        unused[e.getId()] = false;
+                    }
+                }
+                G.exportMermaid(out, true, unused);
+                out.write("This matroid has a value: " + getSumOfMatroid(matroid) + "\n\n");
             }
+        } catch(IOException ioe){
+            System.err.println(ioe);
         }
     }
-    public void combineCycles(){
+    private double getSumOfMatroid(ArrayList<HashSet<Edge>> matroid){
+        double sum = 0;
+        for(HashSet<Edge> cycle : matroid){
+            sum += getSumOfCycle(cycle);
+        }
+        return sum;
+    }
+    private void combineCycles(){
         ArrayList<HashSet<Edge>> forbidden = new ArrayList<HashSet<Edge>>();
         for(HashSet<Edge> cycle : cycles){
             forbidden.add(cycle);
@@ -65,23 +86,14 @@ class CycleMatroid{
             matroids.add(matroid);
         }
     }
-    public void printCycles(){
-        for(HashSet<Edge> cycle : cycles){
-            System.out.print("Cyklus:");
-            for(Edge e : cycle){
-                System.out.print(e);
-            }
-            System.out.println(" With sum: " + getValueOfCycle(cycle));
-        }
-    }
-    private double getValueOfCycle(HashSet<Edge> cycle){
+    private double getSumOfCycle(HashSet<Edge> cycle){
         double sum = 0;
         for(Edge e : cycle){
             sum += e.getValue();
         }
         return sum;
     }
-    public void findCycles(){
+    private void findCycles(){
         HashSet<Edge> forbidden = new HashSet<Edge>();
         for(int i = 0; i < G.edgeSize(); ++i){
             HashSet<Edge> edges = new HashSet<Edge>();
