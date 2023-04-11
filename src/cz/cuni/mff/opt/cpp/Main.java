@@ -1,6 +1,3 @@
-/**
- * This is main file for solving CPP using matroid intersection algorithm. It also outputs file with visualizing the result.
- */
 package cz.cuni.mff.opt.cpp;
 
 import cz.cuni.mff.java.graphs.*;
@@ -10,21 +7,13 @@ import java.io.IOException;
 import java.util.*;
 import java.time.Clock;
 
-/**
- * Main class.
- */
+/** Main class. */
 class Main{
-    /**
-     * String which will be print to output file as a header for cycle subgraphs.
-     */
+    /** String which will be print to output file as a header for cycle subgraphs. */
     public static String CYCLE_MATROID_HEADER = "## Cycle Matroids";
-    /**
-     * String which will be print to output file as a header for even subset subgraphs.
-     */
+    /** String which will be print to output file as a header for even subset subgraphs. */
     public static String EVEN_SUBGRAPH_MATROID_HEADER = "## Even subgraph matroids";
-    /**
-     * String which will be print to output file as a header for result of intersection algorithm.
-     */
+    /** String which will be print to output file as a header for result of intersection algorithm. */
     public static String ALG_RESULT = "## Result of the intersection algorithm";
     /**
      * Main function.
