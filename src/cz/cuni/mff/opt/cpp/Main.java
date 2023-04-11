@@ -33,7 +33,8 @@ class Main{
         CPP(G2, "output/Petersen.md");
         Graph G3 = new Graph("graphs/example");
         CPP(G3, "output/Example.md");
-        
+        Graph G4 = new Graph("graphs/special");
+        CPP(G4, "output/Special.md");
     }
     private static void CPP(Graph G, String outputFile){
         try(BufferedWriter out = new BufferedWriter(new FileWriter(outputFile, false))){
