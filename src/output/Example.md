@@ -153,9 +153,9 @@ graph TD;
 	5 -- "60.0" --- 6;
 	6 -- "40.0" --- 7;
 	6 -- "70.0" --- 8;
+	2 -- "40.0" --- 6;
 	1 -- "50.0" --- 5;
 	3 -- "70.0" --- 2;
-	2 -- "40.0" --- 6;
 ```
 
 Now we are garanteed to be able to find an euler path. This euler path is the shortest solution to the *Chinese postman problem*.
@@ -189,9 +189,9 @@ graph TD;
 	5 -- "60.0" --- 6;
 	6 -- "40.0" --- 7;
 	6 -- "70.0" --- 8;
+	2 -- "40.0" --- 6;
 	1 -- "50.0" --- 5;
 	3 -- "70.0" --- 2;
-	2 -- "40.0" --- 6;
 ```
 
 Euler path is as follows: `0 -> 3 -> 2 -> 6 -> 7 -> 5 -> 1 -> 5 -> 6 -> 8 -> 4 -> 3 -> 2 -> 4 -> 6 -> 2 -> 1 -> 0`.

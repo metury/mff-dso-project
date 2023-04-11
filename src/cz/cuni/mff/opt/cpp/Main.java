@@ -1,3 +1,6 @@
+/**
+ * This is main file for solving CPP using matroid intersection algorithm. It also outputs file with visualizing the result.
+ */
 package cz.cuni.mff.opt.cpp;
 
 import cz.cuni.mff.java.graphs.*;
@@ -5,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.time.Clock;
 
 /**
  * Main class.
@@ -19,7 +23,7 @@ class Main{
      */
     public static String EVEN_SUBGRAPH_MATROID_HEADER = "## Even subgraph matroids";
     /**
-     * String which will be print to ouptu file as a header for result of intersection algorithm.
+     * String which will be print to output file as a header for result of intersection algorithm.
      */
     public static String ALG_RESULT = "## Result of the intersection algorithm";
     /**
@@ -27,14 +31,30 @@ class Main{
      * @param args Program arguments.
      */
     public static void main(String[] args){
+        Clock clock = Clock.systemDefaultZone();
         Graph G = new Graph("graphs/simple");
+        long start = clock.millis();
         CPP(G, "output/Simple.md");
+        long end = clock.millis();
+        System.out.println("DONE: " + (end - start));
+        
         Graph G2 = new Graph("graphs/petersen");
+        start = clock.millis();
         CPP(G2, "output/Petersen.md");
+        end = clock.millis();
+        System.out.println("DONE: " + (end - start));
+        
         Graph G3 = new Graph("graphs/example");
+        start = clock.millis();
         CPP(G3, "output/Example.md");
+        end = clock.millis();
+        System.out.println("DONE: " + (end - start));
+        
         Graph G4 = new Graph("graphs/special");
+        start = clock.millis();
         CPP(G4, "output/Special.md");
+        end = clock.millis();
+        System.out.println("DONE: " + (end - start));
     }
     private static void CPP(Graph G, String outputFile){
         try(BufferedWriter out = new BufferedWriter(new FileWriter(outputFile, false))){
