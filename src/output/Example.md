@@ -153,11 +153,47 @@ graph TD;
 	5 -- "60.0" --- 6;
 	6 -- "40.0" --- 7;
 	6 -- "70.0" --- 8;
+	1 -- "50.0" --- 5;
 	3 -- "70.0" --- 2;
 	2 -- "40.0" --- 6;
-	1 -- "50.0" --- 5;
 ```
 
-Now we are garanteed to be able to find an euler path. This euler path is the shortest solution to the *Chinese postman problem*.We won't be showing the euler path itself because it is not that hard to find it.
+Now we are garanteed to be able to find an euler path. This euler path is the shortest solution to the *Chinese postman problem*.
+
+### Euler path: 
+
+First we will index our vertices and then show a path.
+
+```mermaid
+graph TD;
+	0("0.0");
+	1("1.0");
+	2("2.0");
+	3("3.0");
+	4("4.0");
+	5("5.0");
+	6("6.0");
+	7("7.0");
+	8("8.0");
+	0 -- "70.0" --- 1;
+	0 -- "70.0" --- 3;
+	1 -- "50.0" --- 2;
+	1 -- "50.0" --- 5;
+	2 -- "40.0" --- 6;
+	2 -- "80.0" --- 4;
+	3 -- "70.0" --- 2;
+	3 -- "60.0" --- 4;
+	4 -- "100.0" --- 6;
+	4 -- "90.0" --- 8;
+	5 -- "40.0" --- 7;
+	5 -- "60.0" --- 6;
+	6 -- "40.0" --- 7;
+	6 -- "70.0" --- 8;
+	1 -- "50.0" --- 5;
+	3 -- "70.0" --- 2;
+	2 -- "40.0" --- 6;
+```
+
+Euler path is as follows: `0 -> 3 -> 2 -> 6 -> 7 -> 5 -> 1 -> 5 -> 6 -> 8 -> 4 -> 3 -> 2 -> 4 -> 6 -> 2 -> 1 -> 0`.
 
 For those who may be interested in number result, it is: `1050.0`.

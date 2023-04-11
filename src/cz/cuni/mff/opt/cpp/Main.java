@@ -62,13 +62,13 @@ class Main{
             // Print details.
             out.write("To solve the *Chinese Postman problem* we duplicate the edges not in the matroid intersection and get the multigraph $H$:\n\n");
             H.exportMermaid(out, true);
-            out.write("Now we are garanteed to be able to find an euler path. This euler path is the shortest solution to the *Chinese postman problem*.");
-            out.write("We won't be showing the euler path itself because it is not that hard to find it.");
+            out.write("Now we are garanteed to be able to find an euler path. This euler path is the shortest solution to the *Chinese postman problem*.\n\n");
+            findEulerPath(H, out);
             double numberResult = 0;
             for(int i = 0; i < H.edgeSize(); ++i){
                 numberResult += H.getEdge(i).getValue();
             }
-            out.write("\n\nFor those who may be interested in number result, it is: `" + numberResult + "`.\n");
+            out.write("For those who may be interested in number result, it is: `" + numberResult + "`.\n");
         } catch(IOException ioe){
             System.err.println(ioe);
         }
@@ -179,36 +179,6 @@ class Main{
         return sum;
     }
     /**
-     * Visualize Matroids to an output file.
-     * @param G Which graph we are using.
-     * @param matroids List of all matroids.
-     * @param header Header for the output file.
-     * @param filePath Path to the output file.
-     * @param append If the file should be appended or not.
-     */
-    public static void visualizeMatroids(Graph G, ArrayList<HashSet<Edge>> matroids, String header, BufferedWriter out) throws IOException{
-        HashSet<Edge> max = findMaximalIndependentSet(matroids);
-        out.write(header + "\n\n");
-        out.write("On input we have following graph $G$:\n\n");
-        G.exportMermaid(out, true);
-        int index = 1;
-        for(HashSet<Edge> matroid : matroids){
-            out.write("### Matroid Nr." + index++ + "\n\n");
-            if(max == matroid){
-               out.write("**This matroid is maximal with respect to the edge values.**\n\n");
-           }
-           boolean [] unused = new boolean[G.edgeSize()];
-           for(int i = 0; i < unused.length; ++i){
-               unused[i] = true;
-           }
-           for(Edge e : matroid){
-               unused[e.getId()] = false;
-           }
-           G.exportMermaid(out, true, unused);
-            out.write("This matroid has a value: `" + getSumOfMatroid(matroid) + "`.\n\n");
-        } 
-    }
-    /**
      * Visualize one matroid (usually the result) to one file.
      * @param G Given graph.
      * @param matroid Which matroid to show.
@@ -226,5 +196,40 @@ class Main{
         }
         G.exportMermaid(out, true, unused);
         out.write("This matroid has a value: `" + getSumOfMatroid(matroid) + "`.\n\n");
+    }
+    public static ArrayList<Vertex> findEulerPath(Graph G, BufferedWriter out) throws IOException{
+        Graph H = G.clone();
+        
+        out.write("### Euler path: \n\n");
+        out.write("First we will index our vertices and then show a path.\n\n");
+        for(Vertex v : H){
+            v.setValue(v.getId());
+        }
+        H.exportMermaid(out, true);
+        out.write("Euler path is as follows: `");
+        Stack<Vertex> stack = new Stack<Vertex>();
+        ArrayList<Vertex> circuit = new ArrayList<Vertex>();
+        Vertex current;
+        if(H.vertexSize() == 0){
+            return circuit;
+        }
+        current = H.getVertex(0);
+        do{
+            boolean hasNeighbours = false;
+            for(Edge e : current){
+                hasNeighbours = true;
+                stack.push(current);
+                current = e.getSecondVertex(current);
+                H.removeEdge(e);
+                break;
+            }
+            if(!hasNeighbours){
+                circuit.add(current);
+                out.write("" + current.getId() + " -> ");
+                current = stack.pop();
+            }
+        } while(!stack.isEmpty());
+        out.write("0`.\n\n");
+        return circuit;
     }
 }
