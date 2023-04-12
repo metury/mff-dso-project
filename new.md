@@ -22,7 +22,7 @@ including network flow, shortest path problems, finding maximum matchings and ma
 
 
 ## Transversal matroids ##
-
+> doplniť
 
 ## Maximum matching in bipartite graphs ##
 Recall that a matching in a graph is a set of edges such that no two of them share a vertex. 
@@ -38,8 +38,9 @@ Here, $I_i$ are all edge collections such that each node in $V_i$ has at most on
 Hence, the problem of constructing a maximum-size matching can be formulated as the problem of constructing a maximum-size intersection $I_1$ ∩ $I_2$ independent in two given matroids with the same ground set.
 The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. Observe that if $G$ has no isolated vertices, then the rank of $\mathcal{M_1}$ is | $V_1$ | and the rank of $\mathcal{M_2}$ is | $V_2$ |.
 
-musíme dokázať: 
-max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
+> musíme dokázať: max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
+
+> môžeme využiť: [1] je ho alg augmenting sequences podobný efektívnemu alg bez použitia matroidov (viď. maximum matching bipartite graph augmenting path) alebo [3] a matroid intersection polytope alebo niečo vlastné?? neodporúčam
 
 
 ## Resources ##
