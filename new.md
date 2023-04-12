@@ -1,3 +1,5 @@
+#### Finding maximum matching in bipartite graphs with the use of matroid intersection algorithm ####
+
 ## Defining matroids ##
 A finite **matroid $\mathcal{M}$** is structure - pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms:
 - $(I_{1})$ The empty set is independent, i.e., $\emptyset \in I$
@@ -40,7 +42,7 @@ The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. Obser
 
 > musíme dokázať: max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
 
-> môžeme využiť: [1] je ho alg augmenting sequences podobný efektívnemu alg bez použitia matroidov (viď. maximum matching bipartite graph augmenting path) alebo [3] a matroid intersection polytope alebo niečo vlastné?? neodporúčam
+> môžeme využiť: [1] je ho alg augmenting sequences podobný efektívnemu alg bez použitia matroidov (viď. maximum matching bipartite graph augmenting path) [klik tu](https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-1-introduction/?ref=rp)
 
 
 ## Resources ##
@@ -49,4 +51,4 @@ The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. Obser
 [[2] RNDr. Ondřej Pangrác, Ph.D.: Matroid intersection problem](https://iuuk.mff.cuni.cz/~pangrac/vyuka/matroids/matroid-ch3.pdf)
 
 [[3] Jan Vondrák: Polyhedral techniques in combinatorial optimization](https://theory.stanford.edu/~jvondrak/CS369P/lec10.pdf)
-<!--- Vondrák completed a bachelor's degree in Physics (1995) and a M.S. (1999) and Ph.D. (2007) in Computer Science at Charles University under advisor Martin Loebl. -->
+
