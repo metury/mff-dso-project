@@ -37,12 +37,41 @@ G = ($V_1$ ∪ $V_2$, $E$ ⊆ $V_1$ × $V_2$) can be written as matroid intersec
 - $I_2$ = { $F$ ⊆ $E$ | ∀ $v$ ∈ $V_2$ : | $F$ ∩ δ($v$)| ≤ 1 } [3]
 
 Here, $I_i$ are all edge collections such that each node in $V_i$ has at most one incident edge. 
+In other words: $I_i$ is all subsets of the edges such that: every vertex $v$
+in $V_i$ satisfy that: the cardinality of matching intersect all edges that are incident to that particular vector in $V_i$ has to be at most one
+> odkaz na video [tu](https://youtu.be/ftEgEYjJEak?t=476)
+
 Hence, the problem of constructing a maximum-size matching can be formulated as the problem of constructing a maximum-size intersection $I_1$ ∩ $I_2$ independent in two given matroids with the same ground set.
 The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. Observe that if $G$ has no isolated vertices, then the rank of $\mathcal{M_1}$ is | $V_1$ | and the rank of $\mathcal{M_2}$ is | $V_2$ |.
 
 > musíme dokázať: max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
 
 > môžeme využiť: [1] je ho alg augmenting sequences podobný efektívnemu alg bez použitia matroidov (viď. maximum matching bipartite graph augmenting path) [klik tu](https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-1-introduction/?ref=rp)
+
+```
+input: bipartite graph G and the sets of vertices in the two partitions V1 and V2
+M <- empty set representing matching
+```
+```
+method findIndependentSet():
+  I <- empty set to store the independent sets
+  for vertex v in V_i:
+    incident <-  the set of edges incident to v in the graph G
+    for neighbour n of v:
+      intersect the incident edges with the set of edges incident to the neighbor
+    if |incident| ≤ 1:
+      add set to I
+  return the set of independent sets I
+```
+> nvm či je to správne, som moc unavená
+> toto je algoritmus pre [Hopcroft Karp Algorithm](https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-1-introduction/?ref=rp) upravený tak, že kontrolujeme či tá cesta je z prieniku
+```
+While there exists an Augmenting Path p in I1 ∩ I2 
+  Remove matching edges of p from M and add not-matching edges of p to M
+  (This increases size of M by 1 as p starts and ends with a free vertex)
+Return M
+```
+
 
 
 ## Resources ##
