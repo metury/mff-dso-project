@@ -11,12 +11,18 @@ That's why we distinguish:
 - the **cardinality intersection problem**, in which we seek an intersection containing a maximum number of elements,
 - the **weighted intersection problem**, in which we seek an intersection of maximum total weight, with respect to a given weighting of the elements. [1]
 
+There are several algorithms for matroid intersection, each running in polynomial time, for example:
+- Edmonds' algorithm uses linear programming and polyhedra
+- three Lawler's algorithms, all using augmenting sequences
+- Cunningham's algorithm for both general and linear matroids
+- many more
+
 The idea of the matroid intersection algorithm was first proposed by mathematicians Jack Edmonds and Richard M. Karp. In 1972 they introduced the concept of matroid intersection and showed that it can be used to solve a wide range of combinatorial optimization problems, 
 including network flow, shortest path problems, finding maximum matchings and maximum weight matchings in bipartite graphs, which will be our topic today.
 
 
-
 ## Transversal matroids ##
+
 
 ## Maximum matching in bipartite graphs ##
 Recall that a matching in a graph is a set of edges such that no two of them share a vertex. 
@@ -32,6 +38,8 @@ Here, $I_i$ are all edge collections such that each node in $V_i$ has at most on
 Hence, the problem of constructing a maximum-size matching can be formulated as the problem of constructing a maximum-size intersection $I_1$ ∩ $I_2$ independent in two given matroids with the same ground set.
 The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. Observe that if $G$ has no isolated vertices, then the rank of $\mathcal{M_1}$ is | $V_1$ | and the rank of $\mathcal{M_2}$ is | $V_2$ |.
 
+musíme dokázať: 
+max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
 
 
 ## Resources ##
