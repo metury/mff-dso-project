@@ -24,7 +24,34 @@ including network flow, shortest path problems, finding maximum matchings and ma
 
 
 ## Transversal matroids ##
-> doplniť
+
+Let $C_i$ be a collection of disjoint sets("categories"). Let $d_i$ be integers with $0 \leq d_i \leq |C_i|$ ("capacities"). Define a subset $I \subset \bigcup_{i} C_i\$ to be "independent" when for every index $i$, $|I \cap C_i| \leq d_i$.  The sets satisfying this condition form the independent sets of a matroid, called **a partition matroid**.
+
+In some publications, the notion of a partition matroid is defined more restrictively, with every $d_i = 1$. The partitions that obey this more restrictive definition are **the transversal matroids** of the family of disjoint sets given by their blocks.
+
+**Input:** disjoint sets $X_v$, $v \in V$
+
+$\mathcal{F} = (X, \varphi)$
+
+$X = \bigcup_{v \in V} X_v\$
+
+$A \in \varphi \Leftrightarrow (v \in V)(|A \cap X_v| \leq 1)$
+
+**Claim:** It is a matroid.
+
+To prove that $\mathcal{F} = (X, \varphi)$ defined as $X = \bigcup_{v \in V} X_v$ and $A \in \varphi \Leftrightarrow (v \in V)(|A \cap X_v| \leq 1)$ is a matroid, we need to show that it satisfies the three axioms of a matroid:
+
+$(I_1)$ The empty set is independent: since $|\emptyset \cap X_v| = 0$ for all $v\in V$, it follows that $\emptyset \in \varphi$.
+
+$(I_2)$ Hereditary property: let $A$ be an independent set and $B\subseteq A$. Then for all $v\in V$, we have $|B \cap X_v| \leq |A \cap X_v| \leq 1$. Therefore, $B$ is also independent.
+
+$(I_3)$ Exchange property: let $A,B\in \varphi$ with $|A|<|B|$. We need to show that there exists an element $x\in B\setminus A$ such that $A\cup {x}\in \varphi$. Since $|A|<|B|$, there exists a set $X_i$ such that $|A\cap X_i|<|B\cap X_i|$. Therefore, there exists an element $x\in B\cap X_i$ such that $x\notin A$. We claim that $A\cup {x}\in \varphi$. To see this, note that for all $v\in V$, we have $|A \cup {x} \cap X_v| \leq |A\cap X_v| + |B\cap X_v| \leq 1+1 = 2$. Therefore, $A\cup {x}\in \varphi$.
+
+<!---
+TU TROJKU ZAJTRA SKONTROLUJEM, ALE ASI OKEJ.
+-->
+Therefore, it is a matroid, specifically a partition matroid.
+
 
 ## Maximum matching in bipartite graphs ##
 Recall that a matching in a graph is a set of edges such that no two of them share a vertex. 
