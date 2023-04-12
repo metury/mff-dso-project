@@ -1,4 +1,4 @@
-#### Finding maximum matching in bipartite graphs with the use of matroid intersection algorithm ####
+# Finding maximum matching in bipartite graphs with the use of matroid intersection algorithm #
 
 ## Defining matroids ##
 A finite **matroid $\mathcal{M}$** is structure - pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms:
