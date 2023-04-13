@@ -16,7 +16,6 @@ public void createIndependentSets(String fileOutput){
 			createIndependentSetsRec(set, added);
 			set.remove(e);
 		}
-		added.remove(v);
 	}
 }
 ```
