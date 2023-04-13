@@ -45,12 +45,18 @@ $(I_1)$ The empty set is independent: since $|\emptyset \cap X_v| = 0$ for all $
 
 $(I_2)$ Hereditary property: let $A$ be an independent set and $B\subseteq A$. Then for all $v\in V$, we have $|B \cap X_v| \leq |A \cap X_v| \leq 1$. Therefore, $B$ is also independent.
 
-$(I_3)$ Exchange property: let $A,B\in \varphi$ with $|A|<|B|$. We need to show that there exists an element $x\in B\setminus A$ such that $A\cup {x}\in \varphi$. Since $|A|<|B|$, there exists a set $X_i$ such that $|A\cap X_i|<|B\cap X_i|$. Therefore, there exists an element $x\in B\cap X_i$ such that $x\notin A$. We claim that $A\cup {x}\in \varphi$. To see this, note that for all $v\in V$, we have $|A \cup {x} \cap X_v| \leq |A\cap X_v| + |B\cap X_v| \leq 1+1 = 2$. Therefore, $A\cup {x}\in \varphi$.
+$(I_3)$ Exchange property: The exchange property $(I_3)$ states that for any independent sets $A, B \in \varphi$ with $|A| < |B|$, there exists an element $x \in B\setminus A$ such that $A \cup {x} \in \varphi$.
 
-<!---
-TU TROJKU ZAJTRA SKONTROLUJEM, ALE ASI OKEJ.
--->
-Therefore, it is a matroid, specifically a partition matroid.
+To prove this, we first note that since $A$ and $B$ are independent, we have $|A\cap X_i|\leq 1$ and $|B\cap X_i| \leq 1$ for all $i\in V$. Also, $|A| < |B|$ implies that there exists some $i\in V$ such that $|A\cap X_i| < |B\cap X_i|$.
+
+Let $x$ be an arbitrary element of $B\cap X_i$ such that $x\notin A$. We claim that $A\cup{x} \in \varphi$. To show this, we need to verify that $|A\cup{x} \cap X_j|\leq 1$ for all $j\in V$.
+
+If $j\neq i$, then we have $|A\cap X_j| \leq 1$ and $|A\cup{x}\cap X_j| = |A\cap X_j| \leq 1$, so $A\cup{x}$ is independent in $X_j$.
+
+If $j=i$, then we have $|A\cap X_i| < |B\cap X_i|$, so $x$ is the unique element of $B\cap X_i$ that is not in $A$. Therefore, $|A\cup{x}\cap X_i| = |A\cap X_i| + 1 \leq |B\cap X_i| \leq 1$, so $A\cup{x}$ is independent in $X_i$.
+
+Thus, $A\cup{x}$ is independent in all $X_j$ and hence it is an independent set in $\mathcal{F}$. Therefore, $\mathcal{F}$ satisfies the exchange property $(I_3)$ and is a matroid, specifically a transversal matroid.
+
 
 
 ## Maximum matching in bipartite graphs ##
