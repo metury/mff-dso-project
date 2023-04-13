@@ -6,11 +6,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.nio.file.*;
+import java.time.Clock;
 
 class Main{
 	public static void main(String[] args){
+		Clock clock = Clock.systemDefaultZone();
+		long start = clock.millis();
 		showCaseAlgorithm("graphs/1", "output/1.md", "output/1(1).md", "output/1(2).md");
+		long end = clock.millis();
+		System.out.println("Time (1): " + (end - start));
+		start = clock.millis();
 		showCaseAlgorithm("graphs/2", "output/2.md", "output/2(1).md", "output/2(2).md");
+		end = clock.millis();
+		System.out.println("Time (2): " + (end - start));
+		start = clock.millis();
+		showCaseAlgorithm("graphs/3", "output/3.md", "output/3(1).md", "output/3(2).md");
+		end = clock.millis();
+		System.out.println("Time (3): " + (end - start));
+		start = clock.millis();
+		showCaseAlgorithm("graphs/4", "output/4.md", "output/4(1).md", "output/4(2).md");
+		end = clock.millis();
+		System.out.println("Time (4): " + (end - start));
 	}
 	public static void showCaseAlgorithm(String graphInput, String fileOutput, String v1Output, String v2Output){
 		Graph G = new Graph(graphInput);
@@ -39,20 +55,23 @@ class Main{
 			for(Vertex v : V2){
 				v.setValue(Double.NaN);
 			}
-			/*Path output = Path.of(fileOutput);
-			Path v1 = Path.of(v1Output);
-			Path v2 = Path.of(v2Output);
-			v2.relativize(output);
-			v1.relativize(output);*/
 			out.write("Now we will find all independent sets of a transversal matroid. Because there may be a way more graphs, we will put it in a separate files.");
-			out.write("First part we have [here](./../" + v1Output + ") and second [here](./../" + v2Output + ").\n\n" );
-			out.write("## Intersection\n\n");
-			out.write("Last think to show we will find the maximal independent sets from both which are the same.\n\n");
+			out.write("First part we have [here](./../" + v1Output + ") and second [here](./../" + v2Output + "). And showcase just the maximal sets from both.\n\n" );
+			out.write("### $I_{1}$\n\n");
+			
 			TraversalMatroid TM1 = new TraversalMatroid(G, V1);
 			TraversalMatroid TM2 = new TraversalMatroid(G, V2);
 			TM1.createIndependentSets(v1Output);
 			TM2.createIndependentSets(v2Output);
+			
+			TM1.printMaxIndependentSet(out);
+			out.write("### $I_{2}$\n\n");
+			
+			TM2.printMaxIndependentSet(out);
+			
 			HashSet<Edge> max = maximalIntersection(TM1.getSets(), TM2.getSets());
+			out.write("## Intersection\n\n");
+			out.write("Last think to show we will find the maximal independent sets from both which are the same.\n\n");
 			boolean[] dotted = new boolean[G.edgeSize()];
 			for(int i = 0; i < G.edgeSize(); ++i){
 				dotted[i] = true;

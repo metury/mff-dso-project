@@ -51,6 +51,23 @@ class TraversalMatroid{
 			independentSets.add(I);
 		}
 	}
+	public void printMaxIndependentSet(BufferedWriter out) throws IOException{
+		independentSets.sort((I1, I2) -> I1.size() - I2.size());
+		for(Vertex v : Vi){
+			v.setValue(0);
+		}
+		boolean[] dotted = new boolean[G.edgeSize()];
+		for(int i = 0; i < G.edgeSize(); ++i){
+			dotted[i] = true;
+		}
+		for(Edge e : independentSets.get(independentSets.size() - 1)){
+			dotted[e.getId()] = false;
+		}
+		G.exportMermaid(out, true, dotted);
+		for(Vertex v : Vi){
+			v.setValue(Double.NaN);
+		}
+	}
 	private void printIndependentSets(String fileOutput){
 		independentSets.sort((I1, I2) -> I1.size() - I2.size());
 		try(BufferedWriter out = new BufferedWriter(new FileWriter(fileOutput))){
