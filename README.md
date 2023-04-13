@@ -1,6 +1,6 @@
 # Chinese postman problem (*shortly CPP*)
 
-Project to discrete optimalisation. First [draft](first_draft.md) of the description.
+Project for discrete optimalisation. First [draft](first_draft.md) of the description.
 
 ## Parts:
 
