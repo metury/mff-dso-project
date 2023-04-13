@@ -117,3 +117,5 @@ Return M
 
 [[3] Jan Vondrák: Polyhedral techniques in combinatorial optimization](https://theory.stanford.edu/~jvondrak/CS369P/lec10.pdf)
 
+[[4] Brualdi, Dinolt: Characterizations of Transversal Matroids and Their Presentation](https://www.sciencedirect.com/science/article/pii/009589567290041X)
+
