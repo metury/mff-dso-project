@@ -60,7 +60,7 @@ After adding some code we can have nice export files:
 
 - [1](output/1.md) *this graph is not bipartite*
 - [2](output/2.md) *this is simple bipartite graph*
-- [3](output/3,md) *this is $K_{4,4}$ graph*
+- [3](output/3.md) *this is $K_{4,4}$ graph*
 - [4](output/4.md) *just another bipartite graph, jsut a litle bigger* (files with all sets are not present due to their file size)
 
 Also there are [RESULTS] of how much time it took to finish each part. Just keep in mind, that it also have to write to each file, which may take quite some time.
