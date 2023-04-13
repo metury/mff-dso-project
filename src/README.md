@@ -18,7 +18,6 @@ public void createIndependentSets(String fileOutput){
 		}
 		added.remove(v);
 	}
-	printIndependentSets(fileOutput);
 }
 ```
 
