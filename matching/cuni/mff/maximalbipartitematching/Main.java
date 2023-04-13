@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.time.Clock;
+import java.nio.file.*;
 
 class Main{
 	public static void main(String[] args){
@@ -39,8 +39,13 @@ class Main{
 			for(Vertex v : V2){
 				v.setValue(Double.NaN);
 			}
+			/*Path output = Path.of(fileOutput);
+			Path v1 = Path.of(v1Output);
+			Path v2 = Path.of(v2Output);
+			v2.relativize(output);
+			v1.relativize(output);*/
 			out.write("Now we will find all independent sets of a transversal matroid. Because there may be a way more graphs, we will put it in a separate files.");
-			out.write("First part we have [here](./" + v1Output + ") and second [here](./" + v2Output + ").\n\n" );
+			out.write("First part we have [here](./../" + v1Output + ") and second [here](./../" + v2Output + ").\n\n" );
 			out.write("## Intersection\n\n");
 			out.write("Last think to show we will find the maximal independent sets from both which are the same.\n\n");
 			TraversalMatroid TM1 = new TraversalMatroid(G, V1);
