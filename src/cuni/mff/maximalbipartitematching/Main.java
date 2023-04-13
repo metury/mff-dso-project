@@ -38,7 +38,7 @@ class Main{
 			HashSet<Vertex> V2 = new HashSet<Vertex>();
 			boolean isBip = isBipartite(G, V1, V2);
 			if(!isBip){
-				out.write("We may already see, that the graph itself is not bipartite or there is a vertex which is left out.\n");
+				out.write("We may already see, that the graph itself is not bipartite.\n\n");
 				return;
 			}
 			for(Vertex v : V1){
@@ -97,9 +97,16 @@ class Main{
 		Stack<Vertex> stackV1 = new Stack<Vertex>();
 		Stack<Vertex> stackV2 = new Stack<Vertex>();
 		stackV1.push(G.getVertex(0));
-		while(found.size() < G.vertexSize()){
+		mainLoop: while(found.size() < G.vertexSize()){
 			if(stackV1.isEmpty() && stackV2.isEmpty()){
-				// There are vertices that can't be reached.
+				for(Vertex v : G){
+					if(!found.contains(v)){
+						stackV1.push(v);
+						found.add(v);
+						V1.add(v);
+						continue mainLoop;
+					}
+				}
 				return false;
 			}
 			while(!stackV1.isEmpty()){
