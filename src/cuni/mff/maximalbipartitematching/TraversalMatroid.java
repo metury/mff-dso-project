@@ -23,7 +23,6 @@ class TraversalMatroid{
 				createIndependentSetsRec(set, added);
 				set.remove(e);
 			}
-			added.remove(v);
 		}
 		printIndependentSets(fileOutput);
 	}
