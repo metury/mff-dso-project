@@ -1,14 +1,14 @@
 # Finding maximum matching in bipartite graphs with the use of matroid intersection algorithm #
 
 ## Defining matroids ##
-A finite **matroid $\mathcal{M}$** is structure - pairing $(X, I)$ where $X$ is a finite set called ground set and $I$ is a family of subsets of $X$ called the independent set satisfying three axioms:
-- $(I_{1})$ The empty set is independent, i.e., $\emptyset \in I$
+A finite **matroid $\mathcal{M}$** is structure - pairing $(X, \varphi)$ where $X$ is a finite set called ground set and $\varphi$ is a family of subsets of $X$ called the independent set satisfying three axioms:
+- $(I_{1})$ The empty set is independent, i.e., $\emptyset \in \varphi$
 - $(I_{2})$ Hereditary property: every subset of an independent set is independent.
 - $(I_{3})$ Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set.
-- $(I_{3'})$ If $A$ is any subset of $X$ then all the maximal (w.r.t. inclusion) subsets $Y$ of $A$ with $Y$ ∈ $I$ have the same cardinality.
+- $(I_{3'})$ If $A$ is any subset of $X$ then all the maximal (w.r.t. inclusion) subsets $Y$ of $A$ with $Y$ ∈ $\varphi$ have the same cardinality.
 
 ## Matroid intersection ##
-In combinatorial optimization, the matroid intersection problem (defined as $\mathcal{M_1}$ ∩ $\mathcal{M_2}$ = ($X$, $I_1$ ∩ $I_2$)) is to find a largest common independent set in two matroids over the same ground set. If the elements of the matroid are assigned real weights, the weighted matroid intersection problem is to find a common independent set with the maximum possible weight. 
+In combinatorial optimization, the matroid intersection problem (defined as $\mathcal{M_1}$ ∩ $\mathcal{M_2}$ = ($X$, $\varphi_1$ ∩ $\varphi_2$)) is to find a largest common independent set in two matroids over the same ground set. If the elements of the matroid are assigned real weights, the weighted matroid intersection problem is to find a common independent set with the maximum possible weight. 
 That's why we distinguish:
 - the **cardinality intersection problem**, in which we seek an intersection containing a maximum number of elements,
 - the **weighted intersection problem**, in which we seek an intersection of maximum total weight, with respect to a given weighting of the elements. [1]
