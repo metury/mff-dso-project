@@ -25,6 +25,9 @@ including network flow, shortest path problems, finding maximum matchings and ma
 
 ## Transversal matroids ##
 
+Transversal matroids are those matroids where the independent sets can be considered as the partial transversals of a family of sets. For a given transversal matroid such a family of sets is called a presentation of the matroid. Transversal matroids were discovered several years ago by Edmonds and Fulkerson, and since then there has been considerable interest in their properties.
+
+### Formal definition
 Let $C_i$ be a collection of disjoint sets("categories"). Let $d_i$ be integers with $0 \leq d_i \leq |C_i|$ ("capacities"). Define a subset $I \subset \bigcup_{i} C_i\$ to be "independent" when for every index $i$, $|I \cap C_i| \leq d_i$.  The sets satisfying this condition form the independent sets of a matroid, called **a partition matroid**.
 
 In some publications, the notion of a partition matroid is defined more restrictively, with every $d_i = 1$. The partitions that obey this more restrictive definition are **the transversal matroids** of the family of disjoint sets given by their blocks.
@@ -57,7 +60,7 @@ If $j=i$, then we have $|A\cap X_i| < |B\cap X_i|$, so $x$ is the unique element
 
 Thus, $A\cup{x}$ is independent in all $X_j$ and hence it is an independent set in $\mathcal{F}$. Therefore, $\mathcal{F}$ satisfies the exchange property $(I_3)$ and is a matroid, specifically a transversal matroid.
 
-
+In our definition of transversal matroids, the independent sets are those that correspond to matchings in a bipartite graph, and the exchange property can be proved by showing that if we have two matchings where the larger matching has one more edge than the smaller matching, then there exists an edge in the larger matching that can be added to the smaller matching to obtain another matching.
 
 ## Maximum matching in bipartite graphs ##
 Recall that a matching in a graph is a set of edges such that no two of them share a vertex. 
