@@ -37,7 +37,7 @@ $X = \bigcup_{v \in V} X_v\$
 
 $A \in \varphi \Leftrightarrow (v \in V)(|A \cap X_v| \leq 1)$
 
-**Claim:** It is a matroid.
+**Claim:** $\mathcal{F}$ is a matroid.
 
 To prove that $\mathcal{F} = (X, \varphi)$ defined as $X = \bigcup_{v \in V} X_v$ and $A \in \varphi \Leftrightarrow (v \in V)(|A \cap X_v| \leq 1)$ is a matroid, we need to show that it satisfies the three axioms of a matroid:
 
