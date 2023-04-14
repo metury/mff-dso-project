@@ -84,6 +84,7 @@ The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. In ou
 Observe that if $G$ has no isolated vertices, then the rank of $\mathcal{M_1}$ is | $V_1$ | and the rank of $\mathcal{M_2}$ is | $V_2$ |.
 
 
+For the algorithm refer to [programming part](https://github.com/metury/mff-dso-project/blob/main/src/README.md).
 
 
 ## Resources ##
