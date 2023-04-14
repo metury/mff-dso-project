@@ -27,6 +27,10 @@ class Main{
 		showCaseAlgorithm("graphs/4", "output/4.md", "output/4(1).md", "output/4(2).md");
 		end = clock.millis();
 		System.out.println("Time (4): " + (end - start));
+		start = clock.millis();
+		showCaseAlgorithm("graphs/5", "output/5.md", "output/5(1).md", "output/5(2).md");
+		end = clock.millis();
+		System.out.println("Time (5): " + (end - start));
 	}
 	public static void showCaseAlgorithm(String graphInput, String fileOutput, String v1Output, String v2Output){
 		Graph G = new Graph(graphInput);
