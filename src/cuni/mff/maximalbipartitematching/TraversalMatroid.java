@@ -34,19 +34,19 @@ class TraversalMatroid{
 			if(added.contains(v)){
 				continue;
 			}
+			added.add(v);
 			for(Edge e : v){
-				added.add(v);
 				set.add(e);
 				createIndependentSetsRec(set, added);
-				added.remove(v);
 				set.remove(e);
 			}
+			added.remove(v);
 		}
 		HashSet<Edge> I = new HashSet<Edge>();
 		for(Edge e : set){
 			I.add(e);
 		}
-		if(I.size() > 0){
+		if(I.size() > 0 && !independentSets.contains(I)){
 			independentSets.add(I);
 		}
 	}

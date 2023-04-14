@@ -37,7 +37,7 @@ private void createIndependentSetsRec(HashSet<Edge> set, HashSet<Vertex> added){
 		}
 	}
 	HashSet<Edge> I = set.copy();
-	if(I.size() > 0){
+	if(I.size() > 0 && !independentSets.contains(I)){
 		independentSets.add(I);
 	}
 }

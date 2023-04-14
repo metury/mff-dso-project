@@ -1,4 +1,4 @@
 Time (1): 5
-Time (2): 21
-Time (3): 218
-Time (4): 1677
+Time (2): 23
+Time (3): 111
+Time (4): 150
