@@ -61,6 +61,7 @@ After adding some code we can have nice export files:
 - [2](output/2.md) *this is simple bipartite graph*
 - [3](output/3.md) *this is $K_{4,4}$ graph*
 - [4](output/4.md) *just another bipartite graph, jsut a litle bigger*
+- [5](output/5.md) *this is $K_{1,8}$ graph*
 
 Also there are [RESULTS](RESULTS.TXT) of how much time it took to finish each part. Just keep in mind, that it also have to write to each file, which may take quite some time.
 
