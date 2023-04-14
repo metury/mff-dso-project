@@ -77,28 +77,13 @@ where δ($v$) represents edges incident to vertex $v$
 Here, $I_i$ are all edge collections such that each node in $V_i$ has at most one incident edge. 
 In other words: $I_i$ is all subsets of the edges such that: every vertex $v$
 in $V_i$ satisfy that: the cardinality of matching intersect all edges that are incident to that particular vector in $V_i$ has to be at most one
-> odkaz na video [tu](https://youtu.be/ftEgEYjJEak?t=476)
 
 Hence, the problem of constructing a maximum-size matching can be formulated as the problem of constructing a maximum-size intersection $I_1$ ∩ $I_2$ independent in two given matroids with the same ground set.
 The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. In our definition of transversal matroids, the independent sets are those that correspond to matchings in a bipartite graph, and the exchange property can be proved by showing that if we have two matchings where the larger matching has one more edge than the smaller matching, then there exists an edge in the larger matching that can be added to the smaller matching to obtain another matching.
 
 Observe that if $G$ has no isolated vertices, then the rank of $\mathcal{M_1}$ is | $V_1$ | and the rank of $\mathcal{M_2}$ is | $V_2$ |.
 
-> musíme dokázať: max párovanie M podmnožina E = max F podmnožina E; F ∈ $I_1$ ∩ $I_2$ 
 
-```
-input: bipartite graph G and the sets of vertices in the two partitions V1 and V2
-M <- empty set representing matching
-```
-```
-method findIndependentSet():
-  I <- empty set to store the independent sets
-  for vertex v in V_i:
-    incident <-  the set of edges incident to v in the graph G
-    ...
-  return the set of independent sets I
-
-```
 
 
 ## Resources ##
