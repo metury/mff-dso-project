@@ -4,7 +4,7 @@
 A finite **matroid $\mathcal{M}$** is structure - pairing $(X, \varphi)$ where $X$ is a finite set called ground set and $\varphi$ is a family of subsets of $X$ called the independent set satisfying three axioms:
 - $(I_{1})$ The empty set is independent, i.e., $\emptyset \in \varphi$
 - $(I_{2})$ Hereditary property: every subset of an independent set is independent.
-- $(I_{3})$ Exchange Property: The exchange axiom states that any independent set can be extended by adding an element from a larger independent set.
+- $(I_{3})$ Exchange Property: states that any independent set can be extended by adding an element from a larger independent set.
 - $(I_{3'})$ If $A$ is any subset of $X$ then all the maximal (w.r.t. inclusion) subsets $Y$ of $A$ with $Y$ ∈ $\varphi$ have the same cardinality.
 
 ## Matroid intersection ##
@@ -28,7 +28,7 @@ including network flow, shortest path problems, finding maximum matchings and ma
 Transversal matroids are those matroids where the independent sets can be considered as the partial transversals of a family of sets. For a given transversal matroid such a family of sets is called a presentation of the matroid. Transversal matroids were discovered several years ago by Edmonds and Fulkerson, and since then there has been considerable interest in their properties.
 
 ### Formal definition
-Let $C_i$ be a collection of disjoint sets("categories"). Let $d_i$ be integers with $0 \leq d_i \leq |C_i|$ ("capacities"). Define a subset $I \subset \bigcup_{i} C_i\$ to be "independent" when for every index $i$, $|I \cap C_i| \leq d_i$.  The sets satisfying this condition form the independent sets of a matroid, called **a partition matroid**.
+Let $C_i$ be a collection of disjoint sets ("categories"). Let $d_i$ be integers with $0 \leq d_i \leq |C_i|$ ("capacities"). Define a subset $I \subset \bigcup_{i} C_i\$ to be "independent" when for every index $i$, $|I \cap C_i| \leq d_i$.  The sets satisfying this condition form the independent sets of a matroid, called **a partition matroid**.
 
 In some publications, the notion of a partition matroid is defined more restrictively, with every $d_i = 1$. The partitions that obey this more restrictive definition are **the transversal matroids** of the family of disjoint sets given by their blocks.
 
@@ -61,7 +61,7 @@ If $j=i$, then we have $|A\cap X_i| < |B\cap X_i|$, so $x$ is the unique element
 Thus, $A\cup{x}$ is independent in all $X_j$ and hence it is an independent set in $\mathcal{F}$. Therefore, $\mathcal{F}$ satisfies the exchange property $(I_3)$ and is a matroid, specifically a transversal matroid.
 
 ## Maximum matching in bipartite graphs ##
-In the mathematical field of graph theory, a bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets $V_1$ and $V_2$, that is every edge connects a vertex in $V_1$ to one in $V_2$.
+A bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets $V_1$ and $V_2$, that is every edge connects a vertex in $V_1$ to one in $V_2$.
 
 Recall that a matching in a graph is a set of edges such that no two of them share a vertex. A maximum matching is a matching that contains the largest possible number of edges. 
 The problem of constructing a maximum-size matching in a bipartite graph can be formulated using matroids as follows: 
