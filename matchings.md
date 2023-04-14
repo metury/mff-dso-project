@@ -75,8 +75,6 @@ G = ($V_1$ ∪ $V_2$, $E$ ⊆ $V_1$ × $V_2$) can be written as matroid intersec
 where δ($v$) represents edges incident to vertex $v$
 
 Here, $I_i$ are all edge collections such that each node in $V_i$ has at most one incident edge. 
-In other words: $I_i$ is all subsets of the edges such that: every vertex $v$
-in $V_i$ satisfy that: the cardinality of matching intersect all edges that are incident to that particular vector in $V_i$ has to be at most one
 
 Hence, the problem of constructing a maximum-size matching can be formulated as the problem of constructing a maximum-size intersection $I_1$ ∩ $I_2$ independent in two given matroids with the same ground set.
 The matroids $\mathcal{M_1}$ and $\mathcal{M_2}$ are transversal matroids. In our definition of transversal matroids, the independent sets are those that correspond to matchings in a bipartite graph, and the exchange property can be proved by showing that if we have two matchings where the larger matching has one more edge than the smaller matching, then there exists an edge in the larger matching that can be added to the smaller matching to obtain another matching.
