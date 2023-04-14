@@ -35,7 +35,7 @@ class Main{
 	public static void showCaseAlgorithm(String graphInput, String fileOutput, String v1Output, String v2Output){
 		Graph G = new Graph(graphInput);
 		try(BufferedWriter out = new BufferedWriter(new FileWriter(fileOutput))){
-			out.write("# Maximal matching in bipartite graph\n\n");
+			out.write("# Maximum matching in bipartite graph\n\n");
 			out.write("We have following Graph $G$:\n\n");
 			G.exportMermaid(out, true);
 			HashSet<Vertex> V1 = new HashSet<Vertex>();
